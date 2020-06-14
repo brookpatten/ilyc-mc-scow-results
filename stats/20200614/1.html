@@ -1,0 +1,4124 @@
+
+            <script type="text/javascript">
+            var treetable_rowstate = new Array();
+            var treetable_callbacks = new Array();
+            function treetable_hideRow(rowId) 
+            {
+                el = document.getElementById(rowId);
+                el.style.display = "none";
+            }
+            function treetable_showRow(rowId) 
+            {
+                el = document.getElementById(rowId);
+                el.style.display = "";
+            }
+            function treetable_hasChildren(rowId) 
+            {
+                res = document.getElementById(rowId + '_0');
+                return (res != null);
+            }
+            function treetable_getRowChildren(rowId) 
+            {
+                el = document.getElementById(rowId);
+                var arr = new Array();
+                i = 0;
+                while (true) 
+                {
+                    childRowId = rowId + '_' + i;
+                    childEl = document.getElementById(childRowId);
+                    if (childEl) 
+                    {
+                        arr[i] = childRowId;
+                    } 
+                    else 
+                    {
+                        break;
+                    }
+                    i++;
+                }
+                return (arr);
+            }
+            function treetable_toggleRow(rowId, state, force) 
+            {
+                var posy=document.body.scrollTop;
+
+                var rowChildren;
+                var i;
+                // open or close all children rows depend on current state
+                force = (force == null) ? 1 : force; 
+                if (state == null) 
+                {
+                    row_state = ((treetable_rowstate[rowId]) ? (treetable_rowstate[rowId]) : 1) * -1;
+                } 
+                else 
+                {
+                    row_state = state;
+                }
+                rowChildren = treetable_getRowChildren(rowId);
+                if (rowChildren.length == 0) return (false);
+                for (i = 0; i < rowChildren.length; i++) 
+                {
+                    if (row_state == -1) 
+                    {
+                        treetable_hideRow(rowChildren[i]);
+                        treetable_toggleRow(rowChildren[i], row_state, -1);
+                    } 
+                    else 
+                    {
+                        if (force == 1 || treetable_rowstate[rowId] != -1) 
+                        {
+                            treetable_showRow(rowChildren[i]);
+                            treetable_toggleRow(rowChildren[i], row_state, -1);
+                        }
+                    }
+                }
+                if (force == 1) 
+                {
+                    treetable_rowstate[rowId] = row_state;
+                    treetable_fireEventRowStateChanged(rowId, row_state);
+                }
+
+                document.body.scrollTop=posy;
+
+                return (true);
+            }
+            function treetable_fireEventRowStateChanged(rowId, state) 
+            {
+                if (treetable_callbacks['eventRowStateChanged']) 
+                {
+                    callback = treetable_callbacks['eventRowStateChanged'] + "('" + rowId + "', " + state + ");";
+                    eval(callback);
+                }
+            }
+            function treetable_collapseAll(tableId) 
+            {
+                table = document.getElementById(tableId);
+                rowChildren = table.getElementsByTagName('tr');
+                for (i = 0; i < rowChildren.length; i++) 
+                {
+                    if (index = rowChildren[i].id.indexOf('_')) 
+                    {
+                        // do not hide root elements
+                        if(index != rowChildren[i].id.lastIndexOf('_')) 
+                        {
+                            rowChildren[i].style.display = 'none';
+                        }
+                        if (treetable_hasChildren(rowChildren[i].id)) 
+                        {
+                            treetable_rowstate[rowChildren[i].id] = -1;
+                            treetable_fireEventRowStateChanged(rowChildren[i].id, -1);
+                        }
+                    }
+                }
+                return (true);
+            }    
+            function treetable_expandAll(tableId) 
+            {
+                table = document.getElementById(tableId);
+                rowChildren = table.getElementsByTagName('tr');
+                for (i = 0; i < rowChildren.length; i++) 
+                {
+                    if (index = rowChildren[i].id.indexOf('_')) 
+                    {
+                        rowChildren[i].style.display = '';
+                        if (treetable_hasChildren(rowChildren[i].id)) 
+                        {
+                            treetable_rowstate[rowChildren[i].id] = 1;
+                            treetable_fireEventRowStateChanged(rowChildren[i].id, 1);
+                        }
+                    }
+                }
+                return (true);
+            }
+            </script>      
+            <a href="#" onclick="treetable_expandAll('treeTable');">Expand all</a>&nbsp;&nbsp;<a href="#" onclick="treetable_collapseAll('treeTable');">Collapse all</a><table id="treeTable" style="table-layout:fixed;width:1275px"><tr><th style="width:300px;">Name</th><th style="width:25px;">Color</th><th style="width:75px;">Position</th><th style="width:75px;">Speed (mph)</th><th style="width:75px;">VMG to Course (mph)</th><th style="width:75px;">Average VMG to Course (mph)</th><th style="width:75px;">Distance to Mark (yards)</th><th style="width:75px;">Distance to Course (yards)</th><th style="width:75px;">Angle to Mark (degrees)</th><th style="width:75px;">Angle to Course (degrees)</th><th style="width:75px;">Average Speed (mph)</th><th style="width:75px;">Maximum Speed (mph)</th><th style="width:75px;">Average Angle to Course (degrees)</th><th style="width:75px;">Distance Covered (miles)</th><th style="width:75px;">Elapsed</th><th style="width:75px;">Lag Behind Leader</th><th style="width:75px;">Lag Behind Next</th></tr><tr id="treeTable_0">
+<td><a href="#" onclick="treetable_toggleRow('treeTable_0');">Andrew 1160</a></td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>6</td>
+<td>5.61</td>
+<td>5.37</td>
+<td>3.79</td>
+<td>0.05</td>
+<td>25.31</td>
+<td>126.75</td>
+<td>16.94</td>
+<td>6.09</td>
+<td>9.25</td>
+<td>47.25</td>
+<td>2.09</td>
+<td>00:20:31</td>
+<td>-00:02:41</td>
+<td>00:00:47</td>
+</tr>
+<tr id="treeTable_0_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Pre-Start</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>0</td>
+<td>7.56</td>
+<td>7.56</td>
+<td>6.35</td>
+<td>21.57</td>
+<td>0</td>
+<td>84.05</td>
+<td>0</td>
+<td>6.35</td>
+<td>8.81</td>
+<td>0</td>
+<td>0.49</td>
+<td>00:04:53</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_0_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_0_1');">1 Start/Finish to Windward</a></td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>8</td>
+<td>3.94</td>
+<td>2.42</td>
+<td>3.42</td>
+<td>20.44</td>
+<td>20.07</td>
+<td>27.03</td>
+<td>52.05</td>
+<td>5.53</td>
+<td>7.69</td>
+<td>49.13</td>
+<td>0.53</td>
+<td>00:05:52</td>
+<td>00:00:06</td>
+<td>00:01:47</td>
+</tr>
+<tr id="treeTable_0_1_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>7</td>
+<td>2.79</td>
+<td>2.77</td>
+<td>1.96</td>
+<td>599.75</td>
+<td>311.7</td>
+<td>24.98</td>
+<td>6.33</td>
+<td>6.46</td>
+<td>7.69</td>
+<td>71</td>
+<td>0.13</td>
+<td>00:01:12</td>
+<td>00:00:06</td>
+<td>-00:04:55</td>
+</tr>
+<tr id="treeTable_0_1_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>4</td>
+<td>1.77</td>
+<td>1.73</td>
+<td>4.07</td>
+<td>74.44</td>
+<td>63.68</td>
+<td>46.61</td>
+<td>12.2</td>
+<td>5.33</td>
+<td>7.07</td>
+<td>40.56</td>
+<td>0.35</td>
+<td>00:03:57</td>
+<td>00:00:06</td>
+<td>00:00:17</td>
+</tr>
+<tr id="treeTable_0_1_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>4</td>
+<td>2.29</td>
+<td>2.25</td>
+<td>1.93</td>
+<td>27.72</td>
+<td>26.09</td>
+<td>80.61</td>
+<td>10.35</td>
+<td>5.35</td>
+<td>7.56</td>
+<td>66.39</td>
+<td>0.04</td>
+<td>00:00:35</td>
+<td>00:00:06</td>
+<td>00:00:17</td>
+</tr>
+<tr id="treeTable_0_1_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>8</td>
+<td>3.94</td>
+<td>2.42</td>
+<td>1.87</td>
+<td>20.44</td>
+<td>20.07</td>
+<td>27.03</td>
+<td>52.05</td>
+<td>2.85</td>
+<td>3.94</td>
+<td>45.16</td>
+<td>0</td>
+<td>00:00:05</td>
+<td>00:00:06</td>
+<td>00:01:47</td>
+</tr>
+<tr id="treeTable_0_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_0_2');">2 Windward to Leeward</a></td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>7</td>
+<td>7.1</td>
+<td>5.94</td>
+<td>4.97</td>
+<td>19.11</td>
+<td>14.44</td>
+<td>15.86</td>
+<td>33.24</td>
+<td>7.17</td>
+<td>9.25</td>
+<td>42.56</td>
+<td>0.43</td>
+<td>00:03:35</td>
+<td>-00:01:34</td>
+<td>00:01:31</td>
+</tr>
+<tr id="treeTable_0_2_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>5</td>
+<td>6.09</td>
+<td>5.93</td>
+<td>4.21</td>
+<td>443.65</td>
+<td>261.18</td>
+<td>23.01</td>
+<td>13.05</td>
+<td>7.56</td>
+<td>9.25</td>
+<td>53.5</td>
+<td>0.18</td>
+<td>00:01:26</td>
+<td>-00:01:34</td>
+<td>00:00:13</td>
+</tr>
+<tr id="treeTable_0_2_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>7</td>
+<td>7.1</td>
+<td>5.94</td>
+<td>5.49</td>
+<td>19.11</td>
+<td>14.44</td>
+<td>15.86</td>
+<td>33.24</td>
+<td>6.9</td>
+<td>8.79</td>
+<td>35.18</td>
+<td>0.25</td>
+<td>00:02:08</td>
+<td>-00:01:34</td>
+<td>00:01:31</td>
+</tr>
+<tr id="treeTable_0_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_0_3');">3 Leeward to Windward</a></td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>8</td>
+<td>5.52</td>
+<td>2.58</td>
+<td>3.3</td>
+<td>20.94</td>
+<td>12.47</td>
+<td>25.54</td>
+<td>62.1</td>
+<td>5.8</td>
+<td>7.61</td>
+<td>51.69</td>
+<td>0.53</td>
+<td>00:05:26</td>
+<td>-00:02:09</td>
+<td>00:04:12</td>
+</tr>
+<tr id="treeTable_0_3_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>6</td>
+<td>3.16</td>
+<td>3.02</td>
+<td>1.02</td>
+<td>562.47</td>
+<td>235.57</td>
+<td>7.42</td>
+<td>17.34</td>
+<td>6.69</td>
+<td>7.61</td>
+<td>79.46</td>
+<td>0.13</td>
+<td>00:01:07</td>
+<td>-00:01:31</td>
+<td>00:00:24</td>
+</tr>
+<tr id="treeTable_0_3_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>5</td>
+<td>2.54</td>
+<td>2.39</td>
+<td>4.4</td>
+<td>143.89</td>
+<td>126.73</td>
+<td>41.95</td>
+<td>19.78</td>
+<td>5.74</td>
+<td>7.29</td>
+<td>39.5</td>
+<td>0.33</td>
+<td>00:03:25</td>
+<td>-00:02:09</td>
+<td>00:00:02</td>
+</tr>
+<tr id="treeTable_0_3_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>5</td>
+<td>5.52</td>
+<td>2.58</td>
+<td>1.98</td>
+<td>20.94</td>
+<td>12.47</td>
+<td>25.54</td>
+<td>62.1</td>
+<td>4.89</td>
+<td>6.65</td>
+<td>63.42</td>
+<td>0.07</td>
+<td>00:00:52</td>
+<td>-00:02:09</td>
+<td>00:00:02</td>
+</tr>
+<tr id="treeTable_0_3_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:02:09</td>
+<td>00:04:12</td>
+</tr>
+<tr id="treeTable_0_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_0_4');">4 Windward to Start/Finish</a></td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>6</td>
+<td>5.44</td>
+<td>5.37</td>
+<td>4.51</td>
+<td>21.27</td>
+<td>16</td>
+<td>52.88</td>
+<td>9.3</td>
+<td>6.5</td>
+<td>8.79</td>
+<td>37.9</td>
+<td>0.46</td>
+<td>00:04:11</td>
+<td>-00:02:41</td>
+<td>00:00:47</td>
+</tr>
+<tr id="treeTable_0_4_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>6</td>
+<td>5.21</td>
+<td>5.2</td>
+<td>1.49</td>
+<td>525.21</td>
+<td>234.45</td>
+<td>19.78</td>
+<td>4.27</td>
+<td>7.04</td>
+<td>8.42</td>
+<td>76.86</td>
+<td>0.13</td>
+<td>00:01:03</td>
+<td>-00:02:41</td>
+<td>00:00:47</td>
+</tr>
+<tr id="treeTable_0_4_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>6</td>
+<td>5.44</td>
+<td>5.37</td>
+<td>5.53</td>
+<td>21.27</td>
+<td>16</td>
+<td>52.88</td>
+<td>9.3</td>
+<td>6.32</td>
+<td>8.79</td>
+<td>24.63</td>
+<td>0.33</td>
+<td>00:03:07</td>
+<td>-00:02:41</td>
+<td>00:00:47</td>
+</tr>
+<tr id="treeTable_0_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Post-Finish</td>
+<td style="background-color: rgb(255,0,0);"></td>
+<td>6</td>
+<td>5.37</td>
+<td>5.37</td>
+<td>6.13</td>
+<td>0</td>
+<td>0</td>
+<td>149.88</td>
+<td>0</td>
+<td>6.13</td>
+<td>9.91</td>
+<td>0</td>
+<td>0.7</td>
+<td>00:06:53</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_1">
+<td><a href="#" onclick="treetable_toggleRow('treeTable_1');">Brook 2</a></td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>5.83</td>
+<td>5.19</td>
+<td>4.4</td>
+<td>1.18</td>
+<td>6.85</td>
+<td>34.28</td>
+<td>27.08</td>
+<td>5.89</td>
+<td>9.53</td>
+<td>40.48</td>
+<td>1.7</td>
+<td>00:17:19</td>
+<td>-00:00:06</td>
+<td>-00:00:06</td>
+</tr>
+<tr id="treeTable_1_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Pre-Start</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>0</td>
+<td>6.75</td>
+<td>6.75</td>
+<td>6.16</td>
+<td>21.47</td>
+<td>0</td>
+<td>41.4</td>
+<td>0</td>
+<td>6.16</td>
+<td>8.72</td>
+<td>0</td>
+<td>0.46</td>
+<td>00:05:00</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_1_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_1_1');">1 Start/Finish to Windward</a></td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>8</td>
+<td>6.22</td>
+<td>5.02</td>
+<td>3.88</td>
+<td>20.48</td>
+<td>17.22</td>
+<td>21.04</td>
+<td>36.22</td>
+<td>5.55</td>
+<td>7.93</td>
+<td>44.05</td>
+<td>0.41</td>
+<td>00:04:28</td>
+<td>-00:00:12</td>
+<td>00:01:29</td>
+</tr>
+<tr id="treeTable_1_1_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>2.08</td>
+<td>2.08</td>
+<td>4.66</td>
+<td>368.36</td>
+<td>199.06</td>
+<td>28.66</td>
+<td>4.05</td>
+<td>5.75</td>
+<td>7.93</td>
+<td>34.47</td>
+<td>0.15</td>
+<td>00:01:32</td>
+<td>-00:00:12</td>
+<td>-00:00:12</td>
+</tr>
+<tr id="treeTable_1_1_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>3.3</td>
+<td>3.29</td>
+<td>2.96</td>
+<td>140.01</td>
+<td>78.79</td>
+<td>29.54</td>
+<td>4.7</td>
+<td>5.27</td>
+<td>6.54</td>
+<td>54.88</td>
+<td>0.2</td>
+<td>00:02:13</td>
+<td>-00:00:12</td>
+<td>-00:00:12</td>
+</tr>
+<tr id="treeTable_1_1_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Starboard</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>8</td>
+<td>6.22</td>
+<td>5.02</td>
+<td>5.1</td>
+<td>20.48</td>
+<td>17.22</td>
+<td>21.04</td>
+<td>36.22</td>
+<td>5.96</td>
+<td>7.15</td>
+<td>30.69</td>
+<td>0.07</td>
+<td>00:00:41</td>
+<td>-00:00:12</td>
+<td>00:01:29</td>
+</tr>
+<tr id="treeTable_1_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_1_2');">2 Windward to Leeward</a></td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>7</td>
+<td>6.63</td>
+<td>5.21</td>
+<td>5.59</td>
+<td>20.31</td>
+<td>15.24</td>
+<td>10.43</td>
+<td>38.18</td>
+<td>6.9</td>
+<td>9.53</td>
+<td>34.65</td>
+<td>0.37</td>
+<td>00:03:10</td>
+<td>-00:00:28</td>
+<td>00:02:37</td>
+</tr>
+<tr id="treeTable_1_2_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>1.56</td>
+<td>-1.56</td>
+<td>5.88</td>
+<td>260.21</td>
+<td>177.26</td>
+<td>140.61</td>
+<td>176.45</td>
+<td>6.84</td>
+<td>8.48</td>
+<td>28.62</td>
+<td>0.23</td>
+<td>00:01:59</td>
+<td>-00:00:28</td>
+<td>-00:00:28</td>
+</tr>
+<tr id="treeTable_1_2_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>7</td>
+<td>6.63</td>
+<td>5.21</td>
+<td>5.1</td>
+<td>20.31</td>
+<td>15.24</td>
+<td>10.43</td>
+<td>38.18</td>
+<td>7.01</td>
+<td>9.53</td>
+<td>44.84</td>
+<td>0.14</td>
+<td>00:01:10</td>
+<td>-00:00:28</td>
+<td>00:02:37</td>
+</tr>
+<tr id="treeTable_1_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_1_3');">3 Leeward to Windward</a></td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>6</td>
+<td>4.76</td>
+<td>2.79</td>
+<td>4.06</td>
+<td>20.16</td>
+<td>5.54</td>
+<td>38.12</td>
+<td>54.08</td>
+<td>5.24</td>
+<td>7.48</td>
+<td>37.95</td>
+<td>0.38</td>
+<td>00:04:20</td>
+<td>-00:00:38</td>
+<td>00:01:55</td>
+</tr>
+<tr id="treeTable_1_3_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>3.3</td>
+<td>3.23</td>
+<td>3.93</td>
+<td>473.1</td>
+<td>88.68</td>
+<td>1.5</td>
+<td>12.3</td>
+<td>5.39</td>
+<td>6.32</td>
+<td>41.87</td>
+<td>0.06</td>
+<td>00:00:37</td>
+<td>-00:00:38</td>
+<td>-00:00:38</td>
+</tr>
+<tr id="treeTable_1_3_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>3.46</td>
+<td>3.43</td>
+<td>4.4</td>
+<td>187.04</td>
+<td>126.6</td>
+<td>50.31</td>
+<td>7.71</td>
+<td>5.35</td>
+<td>7.48</td>
+<td>33.33</td>
+<td>0.23</td>
+<td>00:02:31</td>
+<td>-00:00:38</td>
+<td>-00:00:38</td>
+</tr>
+<tr id="treeTable_1_3_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>4.76</td>
+<td>2.79</td>
+<td>3.41</td>
+<td>20.16</td>
+<td>5.54</td>
+<td>38.12</td>
+<td>54.08</td>
+<td>4.94</td>
+<td>6.02</td>
+<td>45.73</td>
+<td>0.1</td>
+<td>00:01:10</td>
+<td>-00:00:38</td>
+<td>-00:00:38</td>
+</tr>
+<tr id="treeTable_1_3_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:00:38</td>
+<td>00:01:55</td>
+</tr>
+<tr id="treeTable_1_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_1_4');">4 Windward to Start/Finish</a></td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>6.34</td>
+<td>5.89</td>
+<td>4.74</td>
+<td>19.66</td>
+<td>18.7</td>
+<td>12.24</td>
+<td>21.8</td>
+<td>6.21</td>
+<td>9.53</td>
+<td>40.76</td>
+<td>0.4</td>
+<td>00:03:48</td>
+<td>-00:00:06</td>
+<td>-00:00:06</td>
+</tr>
+<tr id="treeTable_1_4_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>1.91</td>
+<td>-1.91</td>
+<td>4.35</td>
+<td>345.24</td>
+<td>229.48</td>
+<td>148.96</td>
+<td>176.49</td>
+<td>6.1</td>
+<td>7.56</td>
+<td>45.2</td>
+<td>0.18</td>
+<td>00:01:45</td>
+<td>-00:00:06</td>
+<td>-00:00:06</td>
+</tr>
+<tr id="treeTable_1_4_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>6.34</td>
+<td>5.89</td>
+<td>5.08</td>
+<td>19.66</td>
+<td>18.7</td>
+<td>12.24</td>
+<td>21.8</td>
+<td>6.3</td>
+<td>9.53</td>
+<td>36.94</td>
+<td>0.22</td>
+<td>00:02:02</td>
+<td>-00:00:06</td>
+<td>-00:00:06</td>
+</tr>
+<tr id="treeTable_1_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Post-Finish</td>
+<td style="background-color: rgb(0,128,0);"></td>
+<td>2</td>
+<td>6.24</td>
+<td>6.24</td>
+<td>6.32</td>
+<td>0</td>
+<td>0</td>
+<td>28.55</td>
+<td>0</td>
+<td>6.32</td>
+<td>10.84</td>
+<td>0</td>
+<td>1.02</td>
+<td>00:09:45</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_2">
+<td><a href="#" onclick="treetable_toggleRow('treeTable_2');">Jane 2641</a></td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>4</td>
+<td>6.24</td>
+<td>5.54</td>
+<td>3.16</td>
+<td>0.01</td>
+<td>30.82</td>
+<td>137.45</td>
+<td>27.5</td>
+<td>5.92</td>
+<td>10.26</td>
+<td>53.35</td>
+<td>2.44</td>
+<td>00:24:44</td>
+<td>-00:02:05</td>
+<td>-00:01:03</td>
+</tr>
+<tr id="treeTable_2_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Pre-Start</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>0</td>
+<td>6.83</td>
+<td>6.83</td>
+<td>6.63</td>
+<td>21.34</td>
+<td>0</td>
+<td>130.36</td>
+<td>0</td>
+<td>6.63</td>
+<td>6.83</td>
+<td>0</td>
+<td>0.01</td>
+<td>00:00:06</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_2_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_2_1');">1 Start/Finish to Windward</a></td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>8</td>
+<td>4.18</td>
+<td>2.07</td>
+<td>1.83</td>
+<td>21.7</td>
+<td>20.45</td>
+<td>10.18</td>
+<td>60.29</td>
+<td>5.4</td>
+<td>9.16</td>
+<td>62.45</td>
+<td>0.87</td>
+<td>00:11:00</td>
+<td>00:05:01</td>
+<td>00:06:42</td>
+</tr>
+<tr id="treeTable_2_1_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>1</td>
+<td>1.91</td>
+<td>1.91</td>
+<td>-3</td>
+<td>740.49</td>
+<td>270.93</td>
+<td>14.84</td>
+<td>3.51</td>
+<td>6.04</td>
+<td>7.87</td>
+<td>115.78</td>
+<td>0.11</td>
+<td>00:01:02</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_2_1_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>1</td>
+<td>5.82</td>
+<td>-5.71</td>
+<td>1.82</td>
+<td>569.18</td>
+<td>109.52</td>
+<td>157.95</td>
+<td>169.04</td>
+<td>5.81</td>
+<td>7.99</td>
+<td>68.13</td>
+<td>0.21</td>
+<td>00:02:28</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_2_1_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>1</td>
+<td>1.77</td>
+<td>1.73</td>
+<td>-3.89</td>
+<td>642.14</td>
+<td>77.35</td>
+<td>12.65</td>
+<td>12.41</td>
+<td>6.89</td>
+<td>9.16</td>
+<td>118.59</td>
+<td>0.08</td>
+<td>00:00:43</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_2_1_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>5</td>
+<td>0.76</td>
+<td>0.69</td>
+<td>2.4</td>
+<td>576.73</td>
+<td>43.23</td>
+<td>19.3</td>
+<td>23.47</td>
+<td>2.88</td>
+<td>3.74</td>
+<td>30.86</td>
+<td>0.05</td>
+<td>00:00:56</td>
+<td>00:05:01</td>
+<td>00:05:13</td>
+</tr>
+<tr id="treeTable_2_1_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 Port</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>6</td>
+<td>2.36</td>
+<td>0.52</td>
+<td>0.44</td>
+<td>575.17</td>
+<td>38.9</td>
+<td>73.44</td>
+<td>77.21</td>
+<td>1.5</td>
+<td>2.36</td>
+<td>70.76</td>
+<td>0</td>
+<td>00:00:05</td>
+<td>00:05:01</td>
+<td>-737588.16:12:35</td>
+</tr>
+<tr id="treeTable_2_1_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 Starboard</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>7</td>
+<td>2.61</td>
+<td>2.6</td>
+<td>4.13</td>
+<td>386.69</td>
+<td>275.41</td>
+<td>41.36</td>
+<td>4.05</td>
+<td>5.54</td>
+<td>6.81</td>
+<td>41.17</td>
+<td>0.19</td>
+<td>00:02:02</td>
+<td>00:05:01</td>
+<td>00:05:12</td>
+</tr>
+<tr id="treeTable_2_1_6">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 Port</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>5</td>
+<td>3.94</td>
+<td>3.81</td>
+<td>3.47</td>
+<td>26.73</td>
+<td>24.67</td>
+<td>52.77</td>
+<td>14.57</td>
+<td>5.36</td>
+<td>6.38</td>
+<td>48.38</td>
+<td>0.23</td>
+<td>00:02:33</td>
+<td>00:05:01</td>
+<td>00:04:55</td>
+</tr>
+<tr id="treeTable_2_1_7">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 Starboard</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>8</td>
+<td>4.18</td>
+<td>2.07</td>
+<td>2.07</td>
+<td>21.7</td>
+<td>20.45</td>
+<td>10.18</td>
+<td>60.29</td>
+<td>3.65</td>
+<td>4.18</td>
+<td>53.37</td>
+<td>0</td>
+<td>00:00:02</td>
+<td>00:05:01</td>
+<td>00:06:42</td>
+</tr>
+<tr id="treeTable_2_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_2_2');">2 Windward to Leeward</a></td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>7</td>
+<td>8.38</td>
+<td>5.43</td>
+<td>5.42</td>
+<td>20.34</td>
+<td>20.34</td>
+<td>51.87</td>
+<td>49.59</td>
+<td>8.18</td>
+<td>10.26</td>
+<td>46.89</td>
+<td>0.46</td>
+<td>00:03:23</td>
+<td>-00:01:47</td>
+<td>00:01:18</td>
+</tr>
+<tr id="treeTable_2_2_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>5</td>
+<td>7.48</td>
+<td>6.98</td>
+<td>5.64</td>
+<td>397.63</td>
+<td>309.11</td>
+<td>29.88</td>
+<td>21.15</td>
+<td>8.38</td>
+<td>10.13</td>
+<td>45.48</td>
+<td>0.24</td>
+<td>00:01:43</td>
+<td>-00:01:47</td>
+<td>-00:00:13</td>
+</tr>
+<tr id="treeTable_2_2_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>7</td>
+<td>8.38</td>
+<td>5.43</td>
+<td>5.2</td>
+<td>20.34</td>
+<td>20.34</td>
+<td>51.87</td>
+<td>49.59</td>
+<td>7.97</td>
+<td>10.26</td>
+<td>48.36</td>
+<td>0.22</td>
+<td>00:01:39</td>
+<td>-00:01:47</td>
+<td>00:01:18</td>
+</tr>
+<tr id="treeTable_2_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_2_3');">3 Leeward to Windward</a></td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>8</td>
+<td>4.65</td>
+<td>4.06</td>
+<td>3.79</td>
+<td>21.46</td>
+<td>16.62</td>
+<td>21.62</td>
+<td>29.15</td>
+<td>4.88</td>
+<td>6.21</td>
+<td>37.55</td>
+<td>0.4</td>
+<td>00:04:51</td>
+<td>-00:02:11</td>
+<td>00:04:10</td>
+</tr>
+<tr id="treeTable_2_3_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>4</td>
+<td>3.82</td>
+<td>3.75</td>
+<td>3.19</td>
+<td>442.58</td>
+<td>219.48</td>
+<td>18.62</td>
+<td>11.11</td>
+<td>5</td>
+<td>6.06</td>
+<td>49.83</td>
+<td>0.15</td>
+<td>00:01:48</td>
+<td>-00:02:11</td>
+<td>-00:01:29</td>
+</tr>
+<tr id="treeTable_2_3_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>8</td>
+<td>4.65</td>
+<td>4.06</td>
+<td>4.14</td>
+<td>21.46</td>
+<td>16.62</td>
+<td>21.62</td>
+<td>29.15</td>
+<td>4.81</td>
+<td>6.21</td>
+<td>30.24</td>
+<td>0.24</td>
+<td>00:03:02</td>
+<td>-00:02:11</td>
+<td>00:04:10</td>
+</tr>
+<tr id="treeTable_2_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_2_4');">4 Windward to Start/Finish</a></td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>4</td>
+<td>6.34</td>
+<td>5.89</td>
+<td>4.32</td>
+<td>21.62</td>
+<td>14.47</td>
+<td>60.98</td>
+<td>21.8</td>
+<td>7.11</td>
+<td>9.31</td>
+<td>50.01</td>
+<td>0.52</td>
+<td>00:04:22</td>
+<td>-00:02:05</td>
+<td>-00:01:03</td>
+</tr>
+<tr id="treeTable_2_4_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>5</td>
+<td>5.95</td>
+<td>5.89</td>
+<td>1.76</td>
+<td>529.01</td>
+<td>319.74</td>
+<td>24.8</td>
+<td>8.14</td>
+<td>7.08</td>
+<td>8.48</td>
+<td>74.61</td>
+<td>0.18</td>
+<td>00:01:32</td>
+<td>-00:02:05</td>
+<td>00:00:36</td>
+</tr>
+<tr id="treeTable_2_4_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>4</td>
+<td>6.34</td>
+<td>5.89</td>
+<td>5.72</td>
+<td>21.62</td>
+<td>14.47</td>
+<td>60.98</td>
+<td>21.8</td>
+<td>7.13</td>
+<td>9.31</td>
+<td>36.55</td>
+<td>0.34</td>
+<td>00:02:49</td>
+<td>-00:02:05</td>
+<td>-00:01:03</td>
+</tr>
+<tr id="treeTable_2_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Post-Finish</td>
+<td style="background-color: rgb(0,0,255);"></td>
+<td>4</td>
+<td>6.67</td>
+<td>6.67</td>
+<td>6.1</td>
+<td>0</td>
+<td>0</td>
+<td>62.36</td>
+<td>0</td>
+<td>6.1</td>
+<td>10.92</td>
+<td>0</td>
+<td>0.69</td>
+<td>00:07:40</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3">
+<td><a href="#" onclick="treetable_toggleRow('treeTable_3');">Jeff 4</a></td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>1</td>
+<td>6.01</td>
+<td>5.71</td>
+<td>4.57</td>
+<td>0.25</td>
+<td>24.45</td>
+<td>51.46</td>
+<td>18.05</td>
+<td>6.02</td>
+<td>10.64</td>
+<td>38.65</td>
+<td>1.66</td>
+<td>00:16:33</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Pre-Start</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>0</td>
+<td>5.81</td>
+<td>5.81</td>
+<td>5.74</td>
+<td>20.41</td>
+<td>0</td>
+<td>118.74</td>
+<td>0</td>
+<td>5.74</td>
+<td>10.12</td>
+<td>0</td>
+<td>0.5</td>
+<td>00:05:11</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_3_1');">1 Start/Finish to Windward</a></td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>8</td>
+<td>1.28</td>
+<td>1.21</td>
+<td>4.11</td>
+<td>21.83</td>
+<td>19.11</td>
+<td>42.04</td>
+<td>19.03</td>
+<td>5.63</td>
+<td>6.69</td>
+<td>41.28</td>
+<td>0.39</td>
+<td>00:04:12</td>
+<td>00:00:12</td>
+<td>00:01:41</td>
+</tr>
+<tr id="treeTable_3_1_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>2</td>
+<td>3.02</td>
+<td>2.77</td>
+<td>4.8</td>
+<td>332.32</td>
+<td>254.68</td>
+<td>26.56</td>
+<td>23.47</td>
+<td>5.59</td>
+<td>6.28</td>
+<td>30.29</td>
+<td>0.2</td>
+<td>00:02:08</td>
+<td>00:00:12</td>
+<td>00:00:12</td>
+</tr>
+<tr id="treeTable_3_1_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>1</td>
+<td>2.52</td>
+<td>2.43</td>
+<td>3.38</td>
+<td>22.3</td>
+<td>19.31</td>
+<td>75.55</td>
+<td>15.56</td>
+<td>5.72</td>
+<td>6.69</td>
+<td>53.28</td>
+<td>0.19</td>
+<td>00:02:02</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3_1_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Starboard</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>8</td>
+<td>1.28</td>
+<td>1.21</td>
+<td>1.21</td>
+<td>21.83</td>
+<td>19.11</td>
+<td>42.04</td>
+<td>19.03</td>
+<td>1.28</td>
+<td>1.28</td>
+<td>19.03</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>00:00:12</td>
+<td>00:01:41</td>
+</tr>
+<tr id="treeTable_3_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_3_2');">2 Windward to Leeward</a></td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>7</td>
+<td>6.33</td>
+<td>6.04</td>
+<td>6</td>
+<td>19.26</td>
+<td>15.14</td>
+<td>34.49</td>
+<td>17.34</td>
+<td>7.29</td>
+<td>9.52</td>
+<td>33.03</td>
+<td>0.36</td>
+<td>00:02:58</td>
+<td>00:00:28</td>
+<td>00:03:05</td>
+</tr>
+<tr id="treeTable_3_2_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>1</td>
+<td>5.82</td>
+<td>5.52</td>
+<td>5.98</td>
+<td>373.69</td>
+<td>191.74</td>
+<td>12.31</td>
+<td>18.56</td>
+<td>7.74</td>
+<td>9.52</td>
+<td>38.34</td>
+<td>0.16</td>
+<td>00:01:13</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3_2_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>7</td>
+<td>6.33</td>
+<td>6.04</td>
+<td>6.02</td>
+<td>19.26</td>
+<td>15.14</td>
+<td>34.49</td>
+<td>17.34</td>
+<td>6.98</td>
+<td>9.16</td>
+<td>29.28</td>
+<td>0.2</td>
+<td>00:01:44</td>
+<td>00:00:28</td>
+<td>00:03:05</td>
+</tr>
+<tr id="treeTable_3_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_3_3');">3 Leeward to Windward</a></td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>7</td>
+<td>7.38</td>
+<td>3.87</td>
+<td>3.72</td>
+<td>20.28</td>
+<td>20.26</td>
+<td>29.45</td>
+<td>58.36</td>
+<td>5.1</td>
+<td>7.38</td>
+<td>41.89</td>
+<td>0.42</td>
+<td>00:04:55</td>
+<td>00:00:38</td>
+<td>00:03:47</td>
+</tr>
+<tr id="treeTable_3_3_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>1</td>
+<td>2.66</td>
+<td>2.5</td>
+<td>3.5</td>
+<td>486.53</td>
+<td>72.94</td>
+<td>11.39</td>
+<td>20.02</td>
+<td>4.7</td>
+<td>6.34</td>
+<td>38.93</td>
+<td>0.04</td>
+<td>00:00:33</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3_3_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>2</td>
+<td>2.52</td>
+<td>2.49</td>
+<td>3.88</td>
+<td>242.32</td>
+<td>149.15</td>
+<td>30.03</td>
+<td>7.96</td>
+<td>4.95</td>
+<td>6.5</td>
+<td>37.98</td>
+<td>0.21</td>
+<td>00:02:32</td>
+<td>00:00:38</td>
+<td>00:00:38</td>
+</tr>
+<tr id="treeTable_3_3_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>1</td>
+<td>3.03</td>
+<td>3.01</td>
+<td>3.61</td>
+<td>46.49</td>
+<td>42.76</td>
+<td>72.89</td>
+<td>6</td>
+<td>5.46</td>
+<td>6.69</td>
+<td>48.01</td>
+<td>0.15</td>
+<td>00:01:37</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3_3_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>7</td>
+<td>7.38</td>
+<td>3.87</td>
+<td>3.25</td>
+<td>20.28</td>
+<td>20.26</td>
+<td>29.45</td>
+<td>58.36</td>
+<td>5.33</td>
+<td>7.38</td>
+<td>51.02</td>
+<td>0.02</td>
+<td>00:00:10</td>
+<td>00:00:38</td>
+<td>00:03:47</td>
+</tr>
+<tr id="treeTable_3_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_3_4');">4 Windward to Start/Finish</a></td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>1</td>
+<td>5.44</td>
+<td>5.37</td>
+<td>5.39</td>
+<td>20.76</td>
+<td>29.43</td>
+<td>32.64</td>
+<td>9.3</td>
+<td>6.58</td>
+<td>8.7</td>
+<td>32.69</td>
+<td>0.36</td>
+<td>00:03:18</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3_4_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>1</td>
+<td>5.71</td>
+<td>5.54</td>
+<td>4.26</td>
+<td>386.56</td>
+<td>193.46</td>
+<td>12.31</td>
+<td>13.9</td>
+<td>6.27</td>
+<td>7.15</td>
+<td>45.94</td>
+<td>0.14</td>
+<td>00:01:18</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3_4_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>1</td>
+<td>5.44</td>
+<td>5.37</td>
+<td>6.14</td>
+<td>20.76</td>
+<td>29.43</td>
+<td>32.64</td>
+<td>9.3</td>
+<td>6.79</td>
+<td>8.7</td>
+<td>23.98</td>
+<td>0.23</td>
+<td>00:01:59</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_3_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Post-Finish</td>
+<td style="background-color: rgb(255,165,0);"></td>
+<td>1</td>
+<td>1.26</td>
+<td>1.26</td>
+<td>5.95</td>
+<td>0</td>
+<td>0</td>
+<td>91.88</td>
+<td>0</td>
+<td>5.95</td>
+<td>9.78</td>
+<td>0</td>
+<td>0.98</td>
+<td>00:11:02</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_4">
+<td><a href="#" onclick="treetable_toggleRow('treeTable_4');">Mark 839</a></td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>7.51</td>
+<td>6.75</td>
+<td>3.37</td>
+<td>0.54</td>
+<td>20.83</td>
+<td>42.64</td>
+<td>26.06</td>
+<td>6</td>
+<td>11.1</td>
+<td>56.13</td>
+<td>2.24</td>
+<td>00:22:25</td>
+<td>-00:06:29</td>
+<td>-00:03:48</td>
+</tr>
+<tr id="treeTable_4_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Pre-Start</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>0</td>
+<td>5.13</td>
+<td>5.13</td>
+<td>5.78</td>
+<td>21.58</td>
+<td>0</td>
+<td>112.66</td>
+<td>0</td>
+<td>5.78</td>
+<td>10.18</td>
+<td>0</td>
+<td>0.45</td>
+<td>00:05:13</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_4_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_4_1');">1 Start/Finish to Windward</a></td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>8</td>
+<td>4.7</td>
+<td>2.25</td>
+<td>2.44</td>
+<td>21.49</td>
+<td>19.46</td>
+<td>3.45</td>
+<td>61.43</td>
+<td>4.75</td>
+<td>7.46</td>
+<td>63.38</td>
+<td>0.56</td>
+<td>00:07:06</td>
+<td>-00:00:11</td>
+<td>00:01:30</td>
+</tr>
+<tr id="treeTable_4_1_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>4</td>
+<td>1.91</td>
+<td>1.91</td>
+<td>3.53</td>
+<td>478.56</td>
+<td>163.88</td>
+<td>23.54</td>
+<td>3.51</td>
+<td>5.39</td>
+<td>6.21</td>
+<td>47.24</td>
+<td>0.06</td>
+<td>00:00:39</td>
+<td>-00:00:11</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_4_1_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>6</td>
+<td>2.66</td>
+<td>2.6</td>
+<td>1.95</td>
+<td>363.45</td>
+<td>133.49</td>
+<td>9.13</td>
+<td>12.41</td>
+<td>5.65</td>
+<td>7.46</td>
+<td>68.65</td>
+<td>0.18</td>
+<td>00:01:56</td>
+<td>-00:00:11</td>
+<td>00:00:38</td>
+</tr>
+<tr id="treeTable_4_1_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Starboard</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>5</td>
+<td>0.52</td>
+<td>0.17</td>
+<td>3.84</td>
+<td>122.18</td>
+<td>78.19</td>
+<td>110.46</td>
+<td>70.67</td>
+<td>5.15</td>
+<td>7.05</td>
+<td>41.45</td>
+<td>0.19</td>
+<td>00:02:09</td>
+<td>-00:00:11</td>
+<td>-00:00:17</td>
+</tr>
+<tr id="treeTable_4_1_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Port</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>1.26</td>
+<td>1.21</td>
+<td>1.12</td>
+<td>71.99</td>
+<td>64.24</td>
+<td>78.72</td>
+<td>15.56</td>
+<td>3.36</td>
+<td>5.71</td>
+<td>89.87</td>
+<td>0.1</td>
+<td>00:01:51</td>
+<td>-00:00:11</td>
+<td>00:00:38</td>
+</tr>
+<tr id="treeTable_4_1_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 Starboard</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>8</td>
+<td>4.7</td>
+<td>2.25</td>
+<td>1.71</td>
+<td>21.49</td>
+<td>19.46</td>
+<td>3.45</td>
+<td>61.43</td>
+<td>3.78</td>
+<td>5.41</td>
+<td>60.24</td>
+<td>0.03</td>
+<td>00:00:27</td>
+<td>-00:00:11</td>
+<td>00:01:30</td>
+</tr>
+<tr id="treeTable_4_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_4_2');">2 Windward to Leeward</a></td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>8</td>
+<td>7.29</td>
+<td>4.08</td>
+<td>5.02</td>
+<td>21.73</td>
+<td>21.12</td>
+<td>20.4</td>
+<td>55.99</td>
+<td>8.01</td>
+<td>11.1</td>
+<td>50.15</td>
+<td>0.48</td>
+<td>00:03:37</td>
+<td>-00:03:05</td>
+<td>00:03:09</td>
+</tr>
+<tr id="treeTable_4_2_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>6.46</td>
+<td>6.25</td>
+<td>5.67</td>
+<td>404.42</td>
+<td>342.17</td>
+<td>43.02</td>
+<td>14.77</td>
+<td>8.11</td>
+<td>11.1</td>
+<td>43.88</td>
+<td>0.26</td>
+<td>00:01:56</td>
+<td>-00:03:05</td>
+<td>-00:01:00</td>
+</tr>
+<tr id="treeTable_4_2_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>8</td>
+<td>7.29</td>
+<td>4.08</td>
+<td>4.26</td>
+<td>21.73</td>
+<td>21.12</td>
+<td>20.4</td>
+<td>55.99</td>
+<td>7.89</td>
+<td>10.88</td>
+<td>57.42</td>
+<td>0.22</td>
+<td>00:01:40</td>
+<td>-00:03:05</td>
+<td>00:03:09</td>
+</tr>
+<tr id="treeTable_4_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_4_3');">3 Leeward to Windward</a></td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>8</td>
+<td>6.46</td>
+<td>2.52</td>
+<td>2.42</td>
+<td>21.61</td>
+<td>21.3</td>
+<td>13.29</td>
+<td>67.06</td>
+<td>5.78</td>
+<td>7.64</td>
+<td>63.51</td>
+<td>0.74</td>
+<td>00:07:38</td>
+<td>-00:03:47</td>
+<td>00:02:34</td>
+</tr>
+<tr id="treeTable_4_3_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>2.27</td>
+<td>2.18</td>
+<td>1.79</td>
+<td>553.99</td>
+<td>304.6</td>
+<td>49.23</td>
+<td>15.87</td>
+<td>6.32</td>
+<td>6.96</td>
+<td>72.83</td>
+<td>0.17</td>
+<td>00:01:35</td>
+<td>-00:03:47</td>
+<td>-00:01:14</td>
+</tr>
+<tr id="treeTable_4_3_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>3.03</td>
+<td>3.01</td>
+<td>2.92</td>
+<td>260.29</td>
+<td>85.42</td>
+<td>13.16</td>
+<td>6</td>
+<td>6.05</td>
+<td>7.64</td>
+<td>60.36</td>
+<td>0.26</td>
+<td>00:02:31</td>
+<td>-00:03:47</td>
+<td>-00:01:14</td>
+</tr>
+<tr id="treeTable_4_3_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>1.91</td>
+<td>1.87</td>
+<td>1.74</td>
+<td>215.73</td>
+<td>124.69</td>
+<td>24.2</td>
+<td>11.11</td>
+<td>5.6</td>
+<td>7.26</td>
+<td>70.39</td>
+<td>0.13</td>
+<td>00:01:21</td>
+<td>-00:03:47</td>
+<td>-00:01:38</td>
+</tr>
+<tr id="treeTable_4_3_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>1.78</td>
+<td>1.66</td>
+<td>3.26</td>
+<td>63.58</td>
+<td>9.37</td>
+<td>12.96</td>
+<td>21.44</td>
+<td>5.12</td>
+<td>6.41</td>
+<td>49.22</td>
+<td>0.1</td>
+<td>00:01:10</td>
+<td>-00:03:47</td>
+<td>-00:01:14</td>
+</tr>
+<tr id="treeTable_4_3_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 Port</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>1.56</td>
+<td>1.56</td>
+<td>1.75</td>
+<td>78.48</td>
+<td>72.01</td>
+<td>63.01</td>
+<td>3.55</td>
+<td>4.97</td>
+<td>6.54</td>
+<td>65.66</td>
+<td>0.05</td>
+<td>00:00:36</td>
+<td>-00:03:47</td>
+<td>-00:01:38</td>
+</tr>
+<tr id="treeTable_4_3_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 Starboard</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>8</td>
+<td>6.46</td>
+<td>2.52</td>
+<td>2.69</td>
+<td>21.61</td>
+<td>21.3</td>
+<td>13.29</td>
+<td>67.06</td>
+<td>5.64</td>
+<td>7.48</td>
+<td>61.46</td>
+<td>0.03</td>
+<td>00:00:20</td>
+<td>-00:03:47</td>
+<td>00:02:34</td>
+</tr>
+<tr id="treeTable_4_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_4_4');">4 Windward to Start/Finish</a></td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>7.07</td>
+<td>6.23</td>
+<td>6.26</td>
+<td>19.99</td>
+<td>32.37</td>
+<td>16.27</td>
+<td>28.17</td>
+<td>7.07</td>
+<td>9.49</td>
+<td>24.66</td>
+<td>0.34</td>
+<td>00:02:52</td>
+<td>-00:06:29</td>
+<td>-00:03:48</td>
+</tr>
+<tr id="treeTable_4_4_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>6.59</td>
+<td>6.41</td>
+<td>6.24</td>
+<td>319.82</td>
+<td>148.44</td>
+<td>10.1</td>
+<td>13.7</td>
+<td>7.42</td>
+<td>9.49</td>
+<td>29.37</td>
+<td>0.15</td>
+<td>00:01:13</td>
+<td>-00:06:29</td>
+<td>-00:03:48</td>
+</tr>
+<tr id="treeTable_4_4_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>7.07</td>
+<td>6.23</td>
+<td>6.27</td>
+<td>19.99</td>
+<td>32.37</td>
+<td>16.27</td>
+<td>28.17</td>
+<td>6.81</td>
+<td>8.17</td>
+<td>21.13</td>
+<td>0.19</td>
+<td>00:01:38</td>
+<td>-00:06:29</td>
+<td>-00:03:48</td>
+</tr>
+<tr id="treeTable_4_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Post-Finish</td>
+<td style="background-color: rgb(128,0,128);"></td>
+<td>7</td>
+<td>6.07</td>
+<td>6.07</td>
+<td>5.58</td>
+<td>0</td>
+<td>0</td>
+<td>33.11</td>
+<td>0</td>
+<td>5.58</td>
+<td>9.13</td>
+<td>0</td>
+<td>0.46</td>
+<td>00:04:59</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_5">
+<td><a href="#" onclick="treetable_toggleRow('treeTable_5');">Merrill 6</a></td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>5.8</td>
+<td>4.85</td>
+<td>2.91</td>
+<td>1.51</td>
+<td>32.65</td>
+<td>34.32</td>
+<td>33.31</td>
+<td>4.46</td>
+<td>10.37</td>
+<td>46.84</td>
+<td>1.94</td>
+<td>00:26:08</td>
+<td>-00:11:15</td>
+<td>-00:04:46</td>
+</tr>
+<tr id="treeTable_5_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Pre-Start</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>0</td>
+<td>5.38</td>
+<td>5.38</td>
+<td>4.59</td>
+<td>20.72</td>
+<td>0</td>
+<td>39.36</td>
+<td>0</td>
+<td>4.59</td>
+<td>10.43</td>
+<td>0</td>
+<td>0.52</td>
+<td>00:06:45</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_5_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_5_1');">1 Start/Finish to Windward</a></td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>4.57</td>
+<td>3.98</td>
+<td>2.11</td>
+<td>20.05</td>
+<td>18.14</td>
+<td>35.48</td>
+<td>29.34</td>
+<td>3.9</td>
+<td>7.93</td>
+<td>59.97</td>
+<td>0.57</td>
+<td>00:08:45</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.51</td>
+<td>1.39</td>
+<td>2.3</td>
+<td>498.84</td>
+<td>221.1</td>
+<td>49.78</td>
+<td>23.47</td>
+<td>4.81</td>
+<td>7.46</td>
+<td>59.22</td>
+<td>0.12</td>
+<td>00:01:32</td>
+<td>-00:01:41</td>
+<td>-00:06:42</td>
+</tr>
+<tr id="treeTable_5_1_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.52</td>
+<td>-2.43</td>
+<td>0.77</td>
+<td>485.86</td>
+<td>209.15</td>
+<td>138.94</td>
+<td>164.43</td>
+<td>1.69</td>
+<td>2.95</td>
+<td>56.38</td>
+<td>0.01</td>
+<td>00:00:22</td>
+<td>-00:01:41</td>
+<td>-00:06:42</td>
+</tr>
+<tr id="treeTable_5_1_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.26</td>
+<td>-1.21</td>
+<td>-1.56</td>
+<td>488.68</td>
+<td>209.3</td>
+<td>139.07</td>
+<td>164.43</td>
+<td>1.62</td>
+<td>2.09</td>
+<td>167.92</td>
+<td>0</td>
+<td>00:00:03</td>
+<td>-00:01:41</td>
+<td>-00:06:42</td>
+</tr>
+<tr id="treeTable_5_1_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>3.03</td>
+<td>2.95</td>
+<td>3.2</td>
+<td>261.95</td>
+<td>30.86</td>
+<td>20.37</td>
+<td>13.6</td>
+<td>4.62</td>
+<td>7.93</td>
+<td>45.23</td>
+<td>0.15</td>
+<td>00:01:55</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.29</td>
+<td>-0.52</td>
+<td>0.37</td>
+<td>261.06</td>
+<td>37.64</td>
+<td>111.32</td>
+<td>103.03</td>
+<td>1.5</td>
+<td>2.56</td>
+<td>71.51</td>
+<td>0</td>
+<td>00:00:09</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.89</td>
+<td>0.52</td>
+<td>0.52</td>
+<td>260.76</td>
+<td>37.29</td>
+<td>45.98</td>
+<td>54.2</td>
+<td>0.89</td>
+<td>0.89</td>
+<td>54.2</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_6">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.83</td>
+<td>-0.69</td>
+<td>-0.69</td>
+<td>261.13</td>
+<td>37.51</td>
+<td>154.95</td>
+<td>146.69</td>
+<td>0.83</td>
+<td>0.83</td>
+<td>146.69</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_7">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.52</td>
+<td>-0.52</td>
+<td>-1.26</td>
+<td>265.49</td>
+<td>33.72</td>
+<td>168.65</td>
+<td>175.95</td>
+<td>1.75</td>
+<td>3.27</td>
+<td>147.8</td>
+<td>0</td>
+<td>00:00:07</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_8">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.77</td>
+<td>-1.73</td>
+<td>-1.04</td>
+<td>266.68</td>
+<td>35.12</td>
+<td>160.23</td>
+<td>167.8</td>
+<td>2.52</td>
+<td>3.27</td>
+<td>131.9</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_9">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.36</td>
+<td>-1.91</td>
+<td>-1.91</td>
+<td>267.51</td>
+<td>34.44</td>
+<td>136.43</td>
+<td>143.83</td>
+<td>2.36</td>
+<td>2.36</td>
+<td>143.83</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_10">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.41</td>
+<td>-0.35</td>
+<td>-1.25</td>
+<td>271</td>
+<td>37.92</td>
+<td>154.73</td>
+<td>146.69</td>
+<td>2.04</td>
+<td>3.33</td>
+<td>137.03</td>
+<td>0</td>
+<td>00:00:04</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_11">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.66</td>
+<td>1.38</td>
+<td>2.63</td>
+<td>205.72</td>
+<td>11.57</td>
+<td>36.53</td>
+<td>33.31</td>
+<td>3.46</td>
+<td>6.28</td>
+<td>36.82</td>
+<td>0.05</td>
+<td>00:00:48</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_12">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.52</td>
+<td>-0.17</td>
+<td>-0.17</td>
+<td>205.79</td>
+<td>11.33</td>
+<td>106.17</td>
+<td>109.33</td>
+<td>0.52</td>
+<td>0.52</td>
+<td>109.33</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_13">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.48</td>
+<td>2.08</td>
+<td>1.82</td>
+<td>204.12</td>
+<td>13.05</td>
+<td>36.98</td>
+<td>33.31</td>
+<td>2.57</td>
+<td>2.66</td>
+<td>43.76</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_14">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.56</td>
+<td>1.56</td>
+<td>1.65</td>
+<td>202.48</td>
+<td>12.45</td>
+<td>0.53</td>
+<td>4.05</td>
+<td>1.82</td>
+<td>2.07</td>
+<td>18.58</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_15">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.07</td>
+<td>1.73</td>
+<td>1.73</td>
+<td>201.67</td>
+<td>13</td>
+<td>37.01</td>
+<td>33.31</td>
+<td>2.07</td>
+<td>2.07</td>
+<td>33.31</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_16">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.76</td>
+<td>-2.6</td>
+<td>-1.58</td>
+<td>207</td>
+<td>11.66</td>
+<td>163.35</td>
+<td>160.12</td>
+<td>1.78</td>
+<td>3.67</td>
+<td>149.1</td>
+<td>0</td>
+<td>00:00:06</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_17">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.33</td>
+<td>-1.04</td>
+<td>-0.69</td>
+<td>208.06</td>
+<td>12.47</td>
+<td>144.88</td>
+<td>141.44</td>
+<td>0.93</td>
+<td>1.33</td>
+<td>146.9</td>
+<td>0</td>
+<td>00:00:02</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_18">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.52</td>
+<td>-0.52</td>
+<td>-0.78</td>
+<td>208.8</td>
+<td>12.16</td>
+<td>179.28</td>
+<td>175.95</td>
+<td>0.88</td>
+<td>1.24</td>
+<td>161.32</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_19">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.32</td>
+<td>-0.17</td>
+<td>-0.35</td>
+<td>209.59</td>
+<td>13.93</td>
+<td>127.12</td>
+<td>123.31</td>
+<td>1.09</td>
+<td>2.01</td>
+<td>122.07</td>
+<td>0</td>
+<td>00:00:03</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_20">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;21 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.41</td>
+<td>-0.35</td>
+<td>-0.35</td>
+<td>209.91</td>
+<td>13.71</td>
+<td>142.95</td>
+<td>146.69</td>
+<td>0.41</td>
+<td>0.41</td>
+<td>146.69</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_21">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.17</td>
+<td>1.38</td>
+<td>0.34</td>
+<td>209.48</td>
+<td>22.25</td>
+<td>56.39</td>
+<td>50.29</td>
+<td>3.1</td>
+<td>5.21</td>
+<td>95.87</td>
+<td>0.01</td>
+<td>00:00:06</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_22">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.25</td>
+<td>1.56</td>
+<td>1.56</td>
+<td>208.64</td>
+<td>21.45</td>
+<td>40.19</td>
+<td>46.09</td>
+<td>2.25</td>
+<td>2.25</td>
+<td>46.09</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_23">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>3.67</td>
+<td>3.64</td>
+<td>2.92</td>
+<td>196.84</td>
+<td>29.16</td>
+<td>16.32</td>
+<td>7.8</td>
+<td>3.49</td>
+<td>5.39</td>
+<td>31.38</td>
+<td>0.01</td>
+<td>00:00:08</td>
+<td>-00:01:29</td>
+<td>-00:01:41</td>
+</tr>
+<tr id="treeTable_5_1_24">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.29</td>
+<td>2.25</td>
+<td>2.43</td>
+<td>194.34</td>
+<td>28.13</td>
+<td>2.03</td>
+<td>10.35</td>
+<td>2.7</td>
+<td>3.11</td>
+<td>21.73</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_25">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.76</td>
+<td>0.69</td>
+<td>2.43</td>
+<td>179.44</td>
+<td>50.84</td>
+<td>7.01</td>
+<td>23.47</td>
+<td>3.82</td>
+<td>6.76</td>
+<td>43.45</td>
+<td>0.02</td>
+<td>00:00:16</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_26">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.04</td>
+<td>-0.34</td>
+<td>-0.46</td>
+<td>179.66</td>
+<td>49.29</td>
+<td>93.4</td>
+<td>109.33</td>
+<td>1.16</td>
+<td>1.91</td>
+<td>111.85</td>
+<td>0</td>
+<td>00:00:02</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_27">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;28 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.32</td>
+<td>-0.17</td>
+<td>-0.35</td>
+<td>180.23</td>
+<td>50.18</td>
+<td>139.47</td>
+<td>123.31</td>
+<td>0.98</td>
+<td>1.63</td>
+<td>115.97</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_28">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.04</td>
+<td>-0.34</td>
+<td>-0.34</td>
+<td>180.26</td>
+<td>49.7</td>
+<td>93.33</td>
+<td>109.33</td>
+<td>1.04</td>
+<td>1.04</td>
+<td>109.33</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_29">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.76</td>
+<td>-0.69</td>
+<td>-0.87</td>
+<td>181.33</td>
+<td>50.62</td>
+<td>172.74</td>
+<td>156.53</td>
+<td>1.33</td>
+<td>1.9</td>
+<td>139.92</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_30">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.21</td>
+<td>1.22</td>
+<td>1.41</td>
+<td>154.13</td>
+<td>102.22</td>
+<td>98.23</td>
+<td>56.69</td>
+<td>4.12</td>
+<td>6.84</td>
+<td>69.81</td>
+<td>0.1</td>
+<td>00:01:24</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_1_31">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>4.57</td>
+<td>3.98</td>
+<td>3.64</td>
+<td>20.05</td>
+<td>18.14</td>
+<td>35.48</td>
+<td>29.34</td>
+<td>4.75</td>
+<td>7.09</td>
+<td>38.27</td>
+<td>0.08</td>
+<td>00:00:59</td>
+<td>-00:01:41</td>
+<td>-00:01:30</td>
+</tr>
+<tr id="treeTable_5_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_5_2');">2 Windward to Leeward</a></td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>6.6</td>
+<td>6.45</td>
+<td>5.69</td>
+<td>19.45</td>
+<td>9.78</td>
+<td>17.89</td>
+<td>12.3</td>
+<td>5.84</td>
+<td>8.32</td>
+<td>10.58</td>
+<td>0.3</td>
+<td>00:03:01</td>
+<td>-00:06:14</td>
+<td>-00:03:09</td>
+</tr>
+<tr id="treeTable_5_2_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>4.82</td>
+<td>4.48</td>
+<td>5.82</td>
+<td>323.55</td>
+<td>40.58</td>
+<td>14.57</td>
+<td>21.77</td>
+<td>6.03</td>
+<td>7.3</td>
+<td>12.27</td>
+<td>0.12</td>
+<td>00:01:10</td>
+<td>-00:06:14</td>
+<td>-00:03:09</td>
+</tr>
+<tr id="treeTable_5_2_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>6.6</td>
+<td>6.45</td>
+<td>5.61</td>
+<td>19.45</td>
+<td>9.78</td>
+<td>17.89</td>
+<td>12.3</td>
+<td>5.72</td>
+<td>8.32</td>
+<td>9.5</td>
+<td>0.18</td>
+<td>00:01:50</td>
+<td>-00:06:14</td>
+<td>-00:03:09</td>
+</tr>
+<tr id="treeTable_5_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_5_3');">3 Leeward to Windward</a></td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>6.09</td>
+<td>2.2</td>
+<td>1.88</td>
+<td>21.66</td>
+<td>21.03</td>
+<td>7.34</td>
+<td>68.77</td>
+<td>4.09</td>
+<td>10.37</td>
+<td>59.64</td>
+<td>0.67</td>
+<td>00:09:45</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.91</td>
+<td>1.87</td>
+<td>1.87</td>
+<td>514.14</td>
+<td>263.76</td>
+<td>19.75</td>
+<td>11.11</td>
+<td>4.92</td>
+<td>7.26</td>
+<td>66.73</td>
+<td>0.15</td>
+<td>00:01:50</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.28</td>
+<td>0.94</td>
+<td>1.69</td>
+<td>488.59</td>
+<td>241.44</td>
+<td>35.91</td>
+<td>65.53</td>
+<td>2.91</td>
+<td>5.71</td>
+<td>51.58</td>
+<td>0.02</td>
+<td>00:00:19</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.33</td>
+<td>1.14</td>
+<td>1.14</td>
+<td>488.27</td>
+<td>241.77</td>
+<td>60.64</td>
+<td>30.96</td>
+<td>1.33</td>
+<td>1.33</td>
+<td>30.96</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.77</td>
+<td>0.84</td>
+<td>0.84</td>
+<td>487.54</td>
+<td>241.01</td>
+<td>32.18</td>
+<td>61.81</td>
+<td>1.77</td>
+<td>1.77</td>
+<td>61.81</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.26</td>
+<td>0.83</td>
+<td>0.83</td>
+<td>487.42</td>
+<td>241.47</td>
+<td>78.79</td>
+<td>49.09</td>
+<td>1.26</td>
+<td>1.26</td>
+<td>49.09</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.41</td>
+<td>0.31</td>
+<td>2.11</td>
+<td>343.28</td>
+<td>66.22</td>
+<td>29.79</td>
+<td>40.91</td>
+<td>4.87</td>
+<td>10.22</td>
+<td>60.25</td>
+<td>0.11</td>
+<td>00:01:23</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_6">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.01</td>
+<td>1.97</td>
+<td>1.64</td>
+<td>338.41</td>
+<td>184.2</td>
+<td>43.9</td>
+<td>10.93</td>
+<td>4.16</td>
+<td>6.79</td>
+<td>64.9</td>
+<td>0.08</td>
+<td>00:01:05</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_7">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.29</td>
+<td>2.29</td>
+<td>2.29</td>
+<td>293.28</td>
+<td>158.15</td>
+<td>35.38</td>
+<td>2.75</td>
+<td>2.97</td>
+<td>6.28</td>
+<td>33.72</td>
+<td>0.03</td>
+<td>00:00:32</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_8">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.52</td>
+<td>0.52</td>
+<td>0.93</td>
+<td>291.95</td>
+<td>159.24</td>
+<td>29.5</td>
+<td>3.55</td>
+<td>1.21</td>
+<td>1.94</td>
+<td>27.73</td>
+<td>0</td>
+<td>00:00:04</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_9">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.17</td>
+<td>1.15</td>
+<td>1.15</td>
+<td>290.99</td>
+<td>158.34</td>
+<td>24.93</td>
+<td>57.9</td>
+<td>2.17</td>
+<td>2.17</td>
+<td>57.9</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_10">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.32</td>
+<td>0.21</td>
+<td>0.21</td>
+<td>290.97</td>
+<td>158.46</td>
+<td>82.08</td>
+<td>49.09</td>
+<td>0.32</td>
+<td>0.32</td>
+<td>49.09</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_11">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.77</td>
+<td>1.67</td>
+<td>1.23</td>
+<td>278.25</td>
+<td>146.07</td>
+<td>11.65</td>
+<td>20.02</td>
+<td>2.58</td>
+<td>4.82</td>
+<td>59.8</td>
+<td>0.01</td>
+<td>00:00:11</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_12">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.91</td>
+<td>1.87</td>
+<td>1.87</td>
+<td>276.83</td>
+<td>146.32</td>
+<td>20.79</td>
+<td>11.11</td>
+<td>1.99</td>
+<td>2.07</td>
+<td>18.31</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_13">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>3.02</td>
+<td>2.91</td>
+<td>3.01</td>
+<td>92.29</td>
+<td>2.18</td>
+<td>17.22</td>
+<td>15.87</td>
+<td>4.45</td>
+<td>9.46</td>
+<td>43.1</td>
+<td>0.12</td>
+<td>00:01:36</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_14">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.63</td>
+<td>1.35</td>
+<td>0.42</td>
+<td>101.29</td>
+<td>56.33</td>
+<td>68.2</td>
+<td>34.41</td>
+<td>3.03</td>
+<td>6.14</td>
+<td>73.37</td>
+<td>0.03</td>
+<td>00:00:38</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_15">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.33</td>
+<td>-0.52</td>
+<td>0.32</td>
+<td>100.01</td>
+<td>54.71</td>
+<td>79.62</td>
+<td>112.78</td>
+<td>1.34</td>
+<td>1.66</td>
+<td>77.32</td>
+<td>0</td>
+<td>00:00:02</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_16">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.41</td>
+<td>-0.31</td>
+<td>-0.31</td>
+<td>100.41</td>
+<td>54.97</td>
+<td>172.28</td>
+<td>139.09</td>
+<td>0.41</td>
+<td>0.41</td>
+<td>139.09</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_17">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.09</td>
+<td>1.36</td>
+<td>0.58</td>
+<td>99.45</td>
+<td>54.07</td>
+<td>16.65</td>
+<td>49.59</td>
+<td>1.21</td>
+<td>2.09</td>
+<td>90.25</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_18">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.94</td>
+<td>0.93</td>
+<td>1.74</td>
+<td>97.25</td>
+<td>55.22</td>
+<td>96</td>
+<td>61.4</td>
+<td>2.06</td>
+<td>2.82</td>
+<td>25.45</td>
+<td>0</td>
+<td>00:00:03</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_19">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.58</td>
+<td>-1.04</td>
+<td>-0.06</td>
+<td>95.24</td>
+<td>51.29</td>
+<td>98.33</td>
+<td>130.91</td>
+<td>1.32</td>
+<td>1.77</td>
+<td>87.72</td>
+<td>0</td>
+<td>00:00:06</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_20">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;21 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.28</td>
+<td>-1.15</td>
+<td>-0.78</td>
+<td>96.24</td>
+<td>51.95</td>
+<td>173.96</td>
+<td>153.37</td>
+<td>1.08</td>
+<td>1.28</td>
+<td>135.78</td>
+<td>0</td>
+<td>00:00:01</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_21">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.25</td>
+<td>-1.76</td>
+<td>-1.26</td>
+<td>96.46</td>
+<td>46.15</td>
+<td>112.93</td>
+<td>141.51</td>
+<td>2.42</td>
+<td>3.27</td>
+<td>124.7</td>
+<td>0</td>
+<td>00:00:05</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_22">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>1.26</td>
+<td>1.25</td>
+<td>1.25</td>
+<td>123.52</td>
+<td>109.78</td>
+<td>70.68</td>
+<td>7.96</td>
+<td>3.31</td>
+<td>7.3</td>
+<td>63.37</td>
+<td>0.04</td>
+<td>00:00:45</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_23">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>0.95</td>
+<td>-0.62</td>
+<td>-0.06</td>
+<td>121.27</td>
+<td>107.2</td>
+<td>68.79</td>
+<td>130.91</td>
+<td>1.87</td>
+<td>2.76</td>
+<td>98.57</td>
+<td>0</td>
+<td>00:00:02</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_24">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>2.52</td>
+<td>-0.01</td>
+<td>-0.01</td>
+<td>122.37</td>
+<td>108.43</td>
+<td>152.6</td>
+<td>90.21</td>
+<td>2.52</td>
+<td>2.52</td>
+<td>90.21</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_3_25">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>6.09</td>
+<td>2.2</td>
+<td>2.93</td>
+<td>21.66</td>
+<td>21.03</td>
+<td>7.34</td>
+<td>68.77</td>
+<td>5.82</td>
+<td>10.37</td>
+<td>59.56</td>
+<td>0.06</td>
+<td>00:00:35</td>
+<td>-00:06:21</td>
+<td>-00:02:34</td>
+</tr>
+<tr id="treeTable_5_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_5_4');">4 Windward to Start/Finish</a></td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>4.73</td>
+<td>4.5</td>
+<td>5.51</td>
+<td>21.4</td>
+<td>38.03</td>
+<td>28.34</td>
+<td>17.79</td>
+<td>5.6</td>
+<td>7.45</td>
+<td>6.94</td>
+<td>0.29</td>
+<td>00:03:08</td>
+<td>-00:11:15</td>
+<td>-00:04:46</td>
+</tr>
+<tr id="treeTable_5_4_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>4.69</td>
+<td>4.68</td>
+<td>5.24</td>
+<td>446.18</td>
+<td>16.88</td>
+<td>6.11</td>
+<td>4.05</td>
+<td>5.31</td>
+<td>5.95</td>
+<td>6.98</td>
+<td>0.04</td>
+<td>00:00:29</td>
+<td>-00:11:15</td>
+<td>-00:04:46</td>
+</tr>
+<tr id="treeTable_5_4_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>4.27</td>
+<td>3.99</td>
+<td>5.75</td>
+<td>274.52</td>
+<td>29.16</td>
+<td>26.75</td>
+<td>21.15</td>
+<td>5.8</td>
+<td>7.28</td>
+<td>5.69</td>
+<td>0.1</td>
+<td>00:01:00</td>
+<td>-00:11:15</td>
+<td>-00:04:46</td>
+</tr>
+<tr id="treeTable_5_4_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Starboard</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>5.73</td>
+<td>5.72</td>
+<td>5.59</td>
+<td>204.82</td>
+<td>43.85</td>
+<td>14.9</td>
+<td>4.05</td>
+<td>5.88</td>
+<td>6.59</td>
+<td>12.79</td>
+<td>0.04</td>
+<td>00:00:24</td>
+<td>-00:11:15</td>
+<td>-00:04:46</td>
+</tr>
+<tr id="treeTable_5_4_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Port</td>
+<td style="background-color: rgb(165,42,42);"></td>
+<td>8</td>
+<td>4.73</td>
+<td>4.5</td>
+<td>5.39</td>
+<td>21.4</td>
+<td>38.03</td>
+<td>28.34</td>
+<td>17.79</td>
+<td>5.46</td>
+<td>7.45</td>
+<td>5.95</td>
+<td>0.11</td>
+<td>00:01:12</td>
+<td>-00:11:15</td>
+<td>-00:04:46</td>
+</tr>
+<tr id="treeTable_5_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Post-Finish</td>
+<td></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_6">
+<td><a href="#" onclick="treetable_toggleRow('treeTable_6');">Pat 1478</a></td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>5</td>
+<td>5.89</td>
+<td>5.89</td>
+<td>3.92</td>
+<td>1.22</td>
+<td>31</td>
+<td>108.52</td>
+<td>0.84</td>
+<td>5.98</td>
+<td>20.91</td>
+<td>44.46</td>
+<td>1.94</td>
+<td>00:19:25</td>
+<td>-00:03:28</td>
+<td>-00:01:23</td>
+</tr>
+<tr id="treeTable_6_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Pre-Start</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>0</td>
+<td>3.37</td>
+<td>3.37</td>
+<td>5.89</td>
+<td>21.77</td>
+<td>0</td>
+<td>113.58</td>
+<td>0</td>
+<td>5.89</td>
+<td>9.61</td>
+<td>0</td>
+<td>0.58</td>
+<td>00:05:56</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_6_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_6_1');">1 Start/Finish to Windward</a></td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>8</td>
+<td>5.83</td>
+<td>4.5</td>
+<td>3.27</td>
+<td>19.71</td>
+<td>17.77</td>
+<td>24.82</td>
+<td>39.53</td>
+<td>5.2</td>
+<td>7.87</td>
+<td>47.54</td>
+<td>0.47</td>
+<td>00:05:28</td>
+<td>-00:00:49</td>
+<td>00:00:52</td>
+</tr>
+<tr id="treeTable_6_1_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>6</td>
+<td>2.79</td>
+<td>2.77</td>
+<td>2.36</td>
+<td>492.29</td>
+<td>150.85</td>
+<td>11.51</td>
+<td>6.33</td>
+<td>6.64</td>
+<td>7.87</td>
+<td>67.71</td>
+<td>0.11</td>
+<td>00:00:56</td>
+<td>-00:00:49</td>
+<td>-00:05:50</td>
+</tr>
+<tr id="treeTable_6_1_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>6</td>
+<td>2.81</td>
+<td>2.77</td>
+<td>3.88</td>
+<td>214.61</td>
+<td>42.11</td>
+<td>2.13</td>
+<td>9.19</td>
+<td>4.93</td>
+<td>5.88</td>
+<td>37.17</td>
+<td>0.19</td>
+<td>00:02:15</td>
+<td>-00:00:49</td>
+<td>-00:00:38</td>
+</tr>
+<tr id="treeTable_6_1_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>7</td>
+<td>3.02</td>
+<td>2.77</td>
+<td>1.96</td>
+<td>176.03</td>
+<td>103.64</td>
+<td>59.54</td>
+<td>23.47</td>
+<td>4.69</td>
+<td>6.06</td>
+<td>64.4</td>
+<td>0.09</td>
+<td>00:01:10</td>
+<td>-00:00:49</td>
+<td>-00:00:38</td>
+</tr>
+<tr id="treeTable_6_1_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>8</td>
+<td>5.83</td>
+<td>4.5</td>
+<td>4.21</td>
+<td>19.71</td>
+<td>17.77</td>
+<td>24.82</td>
+<td>39.53</td>
+<td>5.04</td>
+<td>7.07</td>
+<td>33.15</td>
+<td>0.09</td>
+<td>00:01:04</td>
+<td>-00:00:49</td>
+<td>00:00:52</td>
+</tr>
+<tr id="treeTable_6_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_6_2');">2 Windward to Leeward</a></td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>7</td>
+<td>7.22</td>
+<td>6.36</td>
+<td>5.22</td>
+<td>19.11</td>
+<td>16.15</td>
+<td>29.39</td>
+<td>28.25</td>
+<td>7.43</td>
+<td>11.88</td>
+<td>44.47</td>
+<td>0.43</td>
+<td>00:03:29</td>
+<td>-00:02:05</td>
+<td>00:01:00</td>
+</tr>
+<tr id="treeTable_6_2_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>6</td>
+<td>2.01</td>
+<td>-1.97</td>
+<td>4.6</td>
+<td>445.81</td>
+<td>269.93</td>
+<td>131.81</td>
+<td>169.07</td>
+<td>7.9</td>
+<td>11.88</td>
+<td>55.13</td>
+<td>0.19</td>
+<td>00:01:24</td>
+<td>-00:02:05</td>
+<td>-00:00:18</td>
+</tr>
+<tr id="treeTable_6_2_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>7</td>
+<td>7.22</td>
+<td>6.36</td>
+<td>5.64</td>
+<td>19.11</td>
+<td>16.15</td>
+<td>29.39</td>
+<td>28.25</td>
+<td>7.11</td>
+<td>10.12</td>
+<td>37.21</td>
+<td>0.25</td>
+<td>00:02:04</td>
+<td>-00:02:05</td>
+<td>00:01:00</td>
+</tr>
+<tr id="treeTable_6_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_6_3');">3 Leeward to Windward</a></td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>8</td>
+<td>5.88</td>
+<td>3.76</td>
+<td>3.11</td>
+<td>19.69</td>
+<td>14.74</td>
+<td>1.73</td>
+<td>50.2</td>
+<td>5.39</td>
+<td>20.91</td>
+<td>48.97</td>
+<td>0.53</td>
+<td>00:05:53</td>
+<td>-00:02:33</td>
+<td>00:03:48</td>
+</tr>
+<tr id="treeTable_6_3_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>7</td>
+<td>2.43</td>
+<td>2.39</td>
+<td>1.64</td>
+<td>557.44</td>
+<td>281.49</td>
+<td>20.84</td>
+<td>9.49</td>
+<td>6.39</td>
+<td>7.83</td>
+<td>73.42</td>
+<td>0.16</td>
+<td>00:01:27</td>
+<td>-00:02:33</td>
+<td>00:01:14</td>
+</tr>
+<tr id="treeTable_6_3_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>6</td>
+<td>3.82</td>
+<td>3.75</td>
+<td>3.86</td>
+<td>100.18</td>
+<td>6.7</td>
+<td>14.95</td>
+<td>11.11</td>
+<td>4.92</td>
+<td>6.63</td>
+<td>37.38</td>
+<td>0.28</td>
+<td>00:03:21</td>
+<td>-00:02:33</td>
+<td>-00:00:24</td>
+</tr>
+<tr id="treeTable_6_3_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>6</td>
+<td>3.82</td>
+<td>2.8</td>
+<td>2.82</td>
+<td>73.56</td>
+<td>27.4</td>
+<td>64.73</td>
+<td>42.86</td>
+<td>4.24</td>
+<td>5.21</td>
+<td>48.04</td>
+<td>0.03</td>
+<td>00:00:22</td>
+<td>-00:02:33</td>
+<td>-00:00:24</td>
+</tr>
+<tr id="treeTable_6_3_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>6</td>
+<td>7.87</td>
+<td>5.74</td>
+<td>5.74</td>
+<td>69.98</td>
+<td>24.77</td>
+<td>22.49</td>
+<td>43.21</td>
+<td>7.87</td>
+<td>7.87</td>
+<td>43.21</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:02:33</td>
+<td>-00:00:24</td>
+</tr>
+<tr id="treeTable_6_3_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 Port</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>6</td>
+<td>14.36</td>
+<td>-0.16</td>
+<td>2.22</td>
+<td>82.78</td>
+<td>67.39</td>
+<td>145.13</td>
+<td>90.63</td>
+<td>6.53</td>
+<td>14.36</td>
+<td>64.57</td>
+<td>0.03</td>
+<td>00:00:15</td>
+<td>-00:02:33</td>
+<td>-00:00:24</td>
+</tr>
+<tr id="treeTable_6_3_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 Starboard</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>6</td>
+<td>3.31</td>
+<td>2.5</td>
+<td>3.05</td>
+<td>30.35</td>
+<td>21.66</td>
+<td>4.61</td>
+<td>40.91</td>
+<td>6.6</td>
+<td>20.91</td>
+<td>50.02</td>
+<td>0.03</td>
+<td>00:00:17</td>
+<td>-00:02:33</td>
+<td>-00:00:24</td>
+</tr>
+<tr id="treeTable_6_3_6">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 Port</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>6</td>
+<td>2.07</td>
+<td>1.87</td>
+<td>1.87</td>
+<td>30.04</td>
+<td>22.09</td>
+<td>72.85</td>
+<td>25.5</td>
+<td>2.07</td>
+<td>2.07</td>
+<td>25.5</td>
+<td>0</td>
+<td>00:00:00</td>
+<td>-00:02:33</td>
+<td>-00:00:24</td>
+</tr>
+<tr id="treeTable_6_3_7">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 Starboard</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>8</td>
+<td>5.88</td>
+<td>3.76</td>
+<td>2.99</td>
+<td>19.69</td>
+<td>14.74</td>
+<td>1.73</td>
+<td>50.2</td>
+<td>4.33</td>
+<td>5.88</td>
+<td>43.3</td>
+<td>0.01</td>
+<td>00:00:04</td>
+<td>-00:02:33</td>
+<td>00:03:48</td>
+</tr>
+<tr id="treeTable_6_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_6_4');">4 Windward to Start/Finish</a></td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>5</td>
+<td>5.44</td>
+<td>5.37</td>
+<td>5.42</td>
+<td>20.37</td>
+<td>23.38</td>
+<td>69.88</td>
+<td>9.3</td>
+<td>6.55</td>
+<td>10.88</td>
+<td>26.95</td>
+<td>0.39</td>
+<td>00:03:32</td>
+<td>-00:03:28</td>
+<td>-00:01:23</td>
+</tr>
+<tr id="treeTable_6_4_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>5</td>
+<td>2.29</td>
+<td>-2.25</td>
+<td>2.09</td>
+<td>516.65</td>
+<td>129.87</td>
+<td>156.11</td>
+<td>169.65</td>
+<td>6.56</td>
+<td>10.35</td>
+<td>73.58</td>
+<td>0.07</td>
+<td>00:00:36</td>
+<td>-00:03:28</td>
+<td>-00:01:23</td>
+</tr>
+<tr id="treeTable_6_4_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>5</td>
+<td>5.44</td>
+<td>5.37</td>
+<td>6.12</td>
+<td>20.37</td>
+<td>23.38</td>
+<td>69.88</td>
+<td>9.3</td>
+<td>6.55</td>
+<td>10.88</td>
+<td>17.15</td>
+<td>0.32</td>
+<td>00:02:55</td>
+<td>-00:03:28</td>
+<td>-00:01:23</td>
+</tr>
+<tr id="treeTable_6_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Post-Finish</td>
+<td style="background-color: rgb(255,192,203);"></td>
+<td>5</td>
+<td>8.98</td>
+<td>8.98</td>
+<td>6.93</td>
+<td>0</td>
+<td>0</td>
+<td>20.9</td>
+<td>0</td>
+<td>6.93</td>
+<td>20.27</td>
+<td>0</td>
+<td>0.75</td>
+<td>00:07:14</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_7">
+<td><a href="#" onclick="treetable_toggleRow('treeTable_7');">Skip 1733</a></td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>6.75</td>
+<td>6.23</td>
+<td>4.35</td>
+<td>1.54</td>
+<td>18.83</td>
+<td>43.3</td>
+<td>22.5</td>
+<td>6.18</td>
+<td>9.96</td>
+<td>42.77</td>
+<td>1.79</td>
+<td>00:17:24</td>
+<td>-00:01:02</td>
+<td>-00:00:56</td>
+</tr>
+<tr id="treeTable_7_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Pre-Start</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>0</td>
+<td>6.24</td>
+<td>6.24</td>
+<td>6.05</td>
+<td>20.65</td>
+<td>0</td>
+<td>96.27</td>
+<td>0</td>
+<td>6.05</td>
+<td>9.78</td>
+<td>0</td>
+<td>0.53</td>
+<td>00:05:16</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+<tr id="treeTable_7_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_7_1');">1 Start/Finish to Windward</a></td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>8</td>
+<td>5.71</td>
+<td>3.46</td>
+<td>3.55</td>
+<td>20.9</td>
+<td>18.85</td>
+<td>11.66</td>
+<td>52.72</td>
+<td>5.79</td>
+<td>7.54</td>
+<td>49.12</td>
+<td>0.47</td>
+<td>00:04:51</td>
+<td>-00:00:11</td>
+<td>00:01:30</td>
+</tr>
+<tr id="treeTable_7_1_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>3.03</td>
+<td>2.95</td>
+<td>4.63</td>
+<td>359.93</td>
+<td>246.44</td>
+<td>29.61</td>
+<td>13.6</td>
+<td>5.66</td>
+<td>6.5</td>
+<td>34.13</td>
+<td>0.18</td>
+<td>00:01:51</td>
+<td>-00:00:11</td>
+<td>00:00:01</td>
+</tr>
+<tr id="treeTable_7_1_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>4</td>
+<td>3.13</td>
+<td>3.12</td>
+<td>2.33</td>
+<td>150.84</td>
+<td>99.92</td>
+<td>45.54</td>
+<td>4.05</td>
+<td>6</td>
+<td>7.54</td>
+<td>66.06</td>
+<td>0.22</td>
+<td>00:02:10</td>
+<td>-00:00:11</td>
+<td>-00:00:17</td>
+</tr>
+<tr id="treeTable_7_1_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Starboard</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>8</td>
+<td>5.71</td>
+<td>3.46</td>
+<td>4.34</td>
+<td>20.9</td>
+<td>18.85</td>
+<td>11.66</td>
+<td>52.72</td>
+<td>5.55</td>
+<td>6.81</td>
+<td>38.08</td>
+<td>0.08</td>
+<td>00:00:48</td>
+<td>-00:00:11</td>
+<td>00:01:30</td>
+</tr>
+<tr id="treeTable_7_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_7_2');">2 Windward to Leeward</a></td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>7</td>
+<td>6.83</td>
+<td>6.56</td>
+<td>6.18</td>
+<td>21.65</td>
+<td>17.87</td>
+<td>39.34</td>
+<td>16.3</td>
+<td>7.44</td>
+<td>9.96</td>
+<td>31.03</td>
+<td>0.36</td>
+<td>00:02:52</td>
+<td>-00:00:50</td>
+<td>00:02:15</td>
+</tr>
+<tr id="treeTable_7_2_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>5.71</td>
+<td>5.31</td>
+<td>6.26</td>
+<td>299.27</td>
+<td>181.91</td>
+<td>15.94</td>
+<td>21.5</td>
+<td>7.3</td>
+<td>9.01</td>
+<td>27.93</td>
+<td>0.2</td>
+<td>00:01:36</td>
+<td>-00:00:50</td>
+<td>-00:00:22</td>
+</tr>
+<tr id="treeTable_7_2_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>7</td>
+<td>6.83</td>
+<td>6.56</td>
+<td>6.07</td>
+<td>21.65</td>
+<td>17.87</td>
+<td>39.34</td>
+<td>16.3</td>
+<td>7.6</td>
+<td>9.96</td>
+<td>34.98</td>
+<td>0.16</td>
+<td>00:01:15</td>
+<td>-00:00:50</td>
+<td>00:02:15</td>
+</tr>
+<tr id="treeTable_7_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_7_3');">3 Leeward to Windward</a></td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>7</td>
+<td>6.81</td>
+<td>3.97</td>
+<td>3.5</td>
+<td>20.76</td>
+<td>19.54</td>
+<td>15.9</td>
+<td>54.33</td>
+<td>5.48</td>
+<td>7.15</td>
+<td>49.3</td>
+<td>0.48</td>
+<td>00:05:13</td>
+<td>-00:00:42</td>
+<td>00:03:05</td>
+</tr>
+<tr id="treeTable_7_3_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Port</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>3.65</td>
+<td>3.64</td>
+<td>3.76</td>
+<td>484.5</td>
+<td>105.55</td>
+<td>9.04</td>
+<td>3.55</td>
+<td>5.82</td>
+<td>6.45</td>
+<td>48.24</td>
+<td>0.06</td>
+<td>00:00:38</td>
+<td>-00:00:42</td>
+<td>-00:00:04</td>
+</tr>
+<tr id="treeTable_7_3_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Starboard</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>1.56</td>
+<td>1.56</td>
+<td>3.85</td>
+<td>248.47</td>
+<td>145.29</td>
+<td>39.33</td>
+<td>3.55</td>
+<td>5.31</td>
+<td>6.66</td>
+<td>42.75</td>
+<td>0.21</td>
+<td>00:02:23</td>
+<td>-00:00:42</td>
+<td>-00:00:04</td>
+</tr>
+<tr id="treeTable_7_3_2">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Port</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>3.46</td>
+<td>3.43</td>
+<td>2.92</td>
+<td>102.12</td>
+<td>83.56</td>
+<td>47.2</td>
+<td>7.71</td>
+<td>5.59</td>
+<td>7.15</td>
+<td>58.48</td>
+<td>0.16</td>
+<td>00:01:39</td>
+<td>-00:00:42</td>
+<td>-00:00:04</td>
+</tr>
+<tr id="treeTable_7_3_3">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Starboard</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>7</td>
+<td>6.81</td>
+<td>3.97</td>
+<td>3.41</td>
+<td>20.76</td>
+<td>19.54</td>
+<td>15.9</td>
+<td>54.33</td>
+<td>5.47</td>
+<td>7.15</td>
+<td>51.44</td>
+<td>0.05</td>
+<td>00:00:30</td>
+<td>-00:00:42</td>
+<td>00:03:05</td>
+</tr>
+<tr id="treeTable_7_4">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="treetable_toggleRow('treeTable_7_4');">4 Windward to Start/Finish</a></td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>6.41</td>
+<td>6.06</td>
+<td>5.5</td>
+<td>20.41</td>
+<td>27.65</td>
+<td>22.04</td>
+<td>19.03</td>
+<td>6.62</td>
+<td>8.22</td>
+<td>30</td>
+<td>0.36</td>
+<td>00:03:15</td>
+<td>-00:01:02</td>
+<td>-00:00:56</td>
+</tr>
+<tr id="treeTable_7_4_0">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Starboard</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>6.09</td>
+<td>6.06</td>
+<td>4.77</td>
+<td>373.57</td>
+<td>180.08</td>
+<td>19.7</td>
+<td>5.45</td>
+<td>6.72</td>
+<td>8.22</td>
+<td>40.95</td>
+<td>0.14</td>
+<td>00:01:14</td>
+<td>-00:01:02</td>
+<td>-00:00:56</td>
+</tr>
+<tr id="treeTable_7_4_1">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 Port</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>6.41</td>
+<td>6.06</td>
+<td>5.95</td>
+<td>20.41</td>
+<td>27.65</td>
+<td>22.04</td>
+<td>19.03</td>
+<td>6.56</td>
+<td>7.93</td>
+<td>23.21</td>
+<td>0.22</td>
+<td>00:02:00</td>
+<td>-00:01:02</td>
+<td>-00:00:56</td>
+</tr>
+<tr id="treeTable_7_5">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;Post-Finish</td>
+<td style="background-color: rgb(173,216,230);"></td>
+<td>3</td>
+<td>5.71</td>
+<td>5.71</td>
+<td>5.36</td>
+<td>0</td>
+<td>0</td>
+<td>162.47</td>
+<td>0</td>
+<td>5.36</td>
+<td>10.3</td>
+<td>0</td>
+<td>0.7</td>
+<td>00:09:37</td>
+<td>00:00:00</td>
+<td>00:00:00</td>
+</tr>
+</table><script type="text/javascript">treetable_collapseAll('treeTable');</script>
