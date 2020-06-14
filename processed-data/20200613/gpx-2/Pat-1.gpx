@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.0" creator="GPSBabel - http://www.gpsbabel.org" xmlns="http://www.topografix.com/GPX/1/0">
+  <time>2020-06-14T15:48:45.237Z</time>
+  <bounds minlat="40.482928333" minlon="-83.897728333" maxlat="40.486186667" maxlon="-83.895618333"/>
+  <trk>
+    <trkseg>
+      <trkpt lat="40.486186667" lon="-83.897728333">
+        <time>2020-06-13T16:46:00Z</time>
+        <course>152.949997</course>
+        <speed>1.064900</speed>
+      </trkpt>
+      <trkpt lat="40.486180000" lon="-83.897721667">
+        <time>2020-06-13T16:46:01Z</time>
+        <course>146.100006</course>
+        <speed>1.121489</speed>
+      </trkpt>
+      <trkpt lat="40.486173333" lon="-83.897710000">
+        <time>2020-06-13T16:46:02Z</time>
+        <course>138.419998</course>
+        <speed>1.075189</speed>
+      </trkpt>
+      <trkpt lat="40.486180000" lon="-83.897708333">
+        <time>2020-06-13T16:46:03Z</time>
+        <course>82.169998</course>
+        <speed>1.270678</speed>
+      </trkpt>
+      <trkpt lat="40.486176667" lon="-83.897690000">
+        <time>2020-06-13T16:46:04Z</time>
+        <course>123.879997</course>
+        <speed>1.754256</speed>
+      </trkpt>
+      <trkpt lat="40.486163333" lon="-83.897678333">
+        <time>2020-06-13T16:46:05Z</time>
+        <course>145.690002</course>
+        <speed>2.057778</speed>
+      </trkpt>
+      <trkpt lat="40.486131667" lon="-83.897653333">
+        <time>2020-06-13T16:46:06Z</time>
+        <course>143.160004</course>
+        <speed>3.086667</speed>
+      </trkpt>
+      <trkpt lat="40.486106667" lon="-83.897631667">
+        <time>2020-06-13T16:46:07Z</time>
+        <course>136.479996</course>
+        <speed>3.523944</speed>
+      </trkpt>
+      <trkpt lat="40.486066667" lon="-83.897598333">
+        <time>2020-06-13T16:46:08Z</time>
+        <course>140.830002</course>
+        <speed>4.017811</speed>
+      </trkpt>
+      <trkpt lat="40.486038333" lon="-83.897560000">
+        <time>2020-06-13T16:46:09Z</time>
+        <course>140.779999</course>
+        <speed>3.868622</speed>
+      </trkpt>
+      <trkpt lat="40.486000000" lon="-83.897528333">
+        <time>2020-06-13T16:46:10Z</time>
+        <course>148.440002</course>
+        <speed>3.878911</speed>
+      </trkpt>
+      <trkpt lat="40.485961667" lon="-83.897486667">
+        <time>2020-06-13T16:46:11Z</time>
+        <course>143.309998</course>
+        <speed>4.177289</speed>
+      </trkpt>
+      <trkpt lat="40.485933333" lon="-83.897448333">
+        <time>2020-06-13T16:46:12Z</time>
+        <course>135.940002</course>
+        <speed>4.331622</speed>
+      </trkpt>
+      <trkpt lat="40.485908333" lon="-83.897425000">
+        <time>2020-06-13T16:46:13Z</time>
+        <course>139.190002</course>
+        <speed>4.542544</speed>
+      </trkpt>
+      <trkpt lat="40.485873333" lon="-83.897400000">
+        <time>2020-06-13T16:46:14Z</time>
+        <course>141.199997</course>
+        <speed>4.516822</speed>
+      </trkpt>
+      <trkpt lat="40.485833333" lon="-83.897363333">
+        <time>2020-06-13T16:46:15Z</time>
+        <course>145.559998</course>
+        <speed>4.434511</speed>
+      </trkpt>
+      <trkpt lat="40.485785000" lon="-83.897328333">
+        <time>2020-06-13T16:46:16Z</time>
+        <course>153.649994</course>
+        <speed>4.707167</speed>
+      </trkpt>
+      <trkpt lat="40.485748333" lon="-83.897315000">
+        <time>2020-06-13T16:46:17Z</time>
+        <course>157.139999</course>
+        <speed>4.048678</speed>
+      </trkpt>
+      <trkpt lat="40.485718333" lon="-83.897298333">
+        <time>2020-06-13T16:46:18Z</time>
+        <course>156.199997</course>
+        <speed>4.130989</speed>
+      </trkpt>
+      <trkpt lat="40.485666667" lon="-83.897285000">
+        <time>2020-06-13T16:46:19Z</time>
+        <course>160.860001</course>
+        <speed>4.125844</speed>
+      </trkpt>
+      <trkpt lat="40.485630000" lon="-83.897276667">
+        <time>2020-06-13T16:46:20Z</time>
+        <course>160.130005</course>
+        <speed>4.311044</speed>
+      </trkpt>
+      <trkpt lat="40.485598333" lon="-83.897260000">
+        <time>2020-06-13T16:46:21Z</time>
+        <course>161.389999</course>
+        <speed>3.961222</speed>
+      </trkpt>
+      <trkpt lat="40.485571667" lon="-83.897245000">
+        <time>2020-06-13T16:46:22Z</time>
+        <course>159.009995</course>
+        <speed>3.318167</speed>
+      </trkpt>
+      <trkpt lat="40.485546667" lon="-83.897230000">
+        <time>2020-06-13T16:46:23Z</time>
+        <course>157.440002</course>
+        <speed>3.282156</speed>
+      </trkpt>
+      <trkpt lat="40.485521667" lon="-83.897213333">
+        <time>2020-06-13T16:46:24Z</time>
+        <course>157.720001</course>
+        <speed>3.307878</speed>
+      </trkpt>
+      <trkpt lat="40.485486667" lon="-83.897198333">
+        <time>2020-06-13T16:46:25Z</time>
+        <course>154.009995</course>
+        <speed>3.446778</speed>
+      </trkpt>
+      <trkpt lat="40.485458333" lon="-83.897181667">
+        <time>2020-06-13T16:46:26Z</time>
+        <course>148.369995</course>
+        <speed>3.462211</speed>
+      </trkpt>
+      <trkpt lat="40.485438333" lon="-83.897173333">
+        <time>2020-06-13T16:46:27Z</time>
+        <course>143.029999</course>
+        <speed>3.575389</speed>
+      </trkpt>
+      <trkpt lat="40.485418333" lon="-83.897146667">
+        <time>2020-06-13T16:46:28Z</time>
+        <course>142.509995</course>
+        <speed>3.487933</speed>
+      </trkpt>
+      <trkpt lat="40.485390000" lon="-83.897113333">
+        <time>2020-06-13T16:46:29Z</time>
+        <course>142.850006</course>
+        <speed>3.894344</speed>
+      </trkpt>
+      <trkpt lat="40.485360000" lon="-83.897073333">
+        <time>2020-06-13T16:46:30Z</time>
+        <course>130.699997</course>
+        <speed>4.722600</speed>
+      </trkpt>
+      <trkpt lat="40.485341667" lon="-83.897046667">
+        <time>2020-06-13T16:46:31Z</time>
+        <course>132.889999</course>
+        <speed>4.233878</speed>
+      </trkpt>
+      <trkpt lat="40.485310000" lon="-83.897035000">
+        <time>2020-06-13T16:46:32Z</time>
+        <course>155.320007</course>
+        <speed>4.053822</speed>
+      </trkpt>
+      <trkpt lat="40.485283333" lon="-83.897020000">
+        <time>2020-06-13T16:46:33Z</time>
+        <course>158.050003</course>
+        <speed>3.493078</speed>
+      </trkpt>
+      <trkpt lat="40.485255000" lon="-83.897008333">
+        <time>2020-06-13T16:46:34Z</time>
+        <course>154.830002</course>
+        <speed>3.323311</speed>
+      </trkpt>
+      <trkpt lat="40.485213333" lon="-83.896991667">
+        <time>2020-06-13T16:46:35Z</time>
+        <course>155.190002</course>
+        <speed>3.837755</speed>
+      </trkpt>
+      <trkpt lat="40.485181667" lon="-83.896970000">
+        <time>2020-06-13T16:46:36Z</time>
+        <course>158.589996</course>
+        <speed>3.734867</speed>
+      </trkpt>
+      <trkpt lat="40.485138333" lon="-83.896953333">
+        <time>2020-06-13T16:46:37Z</time>
+        <course>157.369995</course>
+        <speed>4.321333</speed>
+      </trkpt>
+      <trkpt lat="40.485096667" lon="-83.896925000">
+        <time>2020-06-13T16:46:38Z</time>
+        <course>154.710007</course>
+        <speed>4.295611</speed>
+      </trkpt>
+      <trkpt lat="40.485063333" lon="-83.896901667">
+        <time>2020-06-13T16:46:39Z</time>
+        <course>150.979996</course>
+        <speed>4.311044</speed>
+      </trkpt>
+      <trkpt lat="40.485030000" lon="-83.896873333">
+        <time>2020-06-13T16:46:40Z</time>
+        <course>142.789993</course>
+        <speed>4.372778</speed>
+      </trkpt>
+      <trkpt lat="40.485021667" lon="-83.896856667">
+        <time>2020-06-13T16:46:41Z</time>
+        <course>143.690002</course>
+        <speed>3.441633</speed>
+      </trkpt>
+      <trkpt lat="40.484995000" lon="-83.896833333">
+        <time>2020-06-13T16:46:42Z</time>
+        <course>148.639999</course>
+        <speed>3.400478</speed>
+      </trkpt>
+      <trkpt lat="40.484965000" lon="-83.896805000">
+        <time>2020-06-13T16:46:43Z</time>
+        <course>147.509995</course>
+        <speed>3.616544</speed>
+      </trkpt>
+      <trkpt lat="40.484941667" lon="-83.896785000">
+        <time>2020-06-13T16:46:44Z</time>
+        <course>149.580002</course>
+        <speed>3.683422</speed>
+      </trkpt>
+      <trkpt lat="40.484916667" lon="-83.896768333">
+        <time>2020-06-13T16:46:45Z</time>
+        <course>150.250000</course>
+        <speed>3.631978</speed>
+      </trkpt>
+      <trkpt lat="40.484890000" lon="-83.896750000">
+        <time>2020-06-13T16:46:46Z</time>
+        <course>148.729996</course>
+        <speed>3.755445</speed>
+      </trkpt>
+      <trkpt lat="40.484868333" lon="-83.896723333">
+        <time>2020-06-13T16:46:47Z</time>
+        <course>138.470001</course>
+        <speed>3.544522</speed>
+      </trkpt>
+      <trkpt lat="40.484851667" lon="-83.896713333">
+        <time>2020-06-13T16:46:48Z</time>
+        <course>149.759995</course>
+        <speed>3.606256</speed>
+      </trkpt>
+      <trkpt lat="40.484828333" lon="-83.896700000">
+        <time>2020-06-13T16:46:49Z</time>
+        <course>150.449997</course>
+        <speed>3.575389</speed>
+      </trkpt>
+      <trkpt lat="40.484800000" lon="-83.896683333">
+        <time>2020-06-13T16:46:50Z</time>
+        <course>152.210007</course>
+        <speed>3.776022</speed>
+      </trkpt>
+      <trkpt lat="40.484773333" lon="-83.896675000">
+        <time>2020-06-13T16:46:51Z</time>
+        <course>147.860001</course>
+        <speed>3.935500</speed>
+      </trkpt>
+      <trkpt lat="40.484735000" lon="-83.896661667">
+        <time>2020-06-13T16:46:52Z</time>
+        <course>156.619995</course>
+        <speed>3.729722</speed>
+      </trkpt>
+      <trkpt lat="40.484703333" lon="-83.896650000">
+        <time>2020-06-13T16:46:53Z</time>
+        <course>160.869995</course>
+        <speed>3.354178</speed>
+      </trkpt>
+      <trkpt lat="40.484670000" lon="-83.896633333">
+        <time>2020-06-13T16:46:54Z</time>
+        <course>163.179993</course>
+        <speed>3.318167</speed>
+      </trkpt>
+      <trkpt lat="40.484628333" lon="-83.896610000">
+        <time>2020-06-13T16:46:55Z</time>
+        <course>164.270004</course>
+        <speed>3.523944</speed>
+      </trkpt>
+      <trkpt lat="40.484593333" lon="-83.896595000">
+        <time>2020-06-13T16:46:56Z</time>
+        <course>162.470001</course>
+        <speed>3.534233</speed>
+      </trkpt>
+      <trkpt lat="40.484565000" lon="-83.896578333">
+        <time>2020-06-13T16:46:57Z</time>
+        <course>157.830002</course>
+        <speed>3.626833</speed>
+      </trkpt>
+      <trkpt lat="40.484533333" lon="-83.896566667">
+        <time>2020-06-13T16:46:58Z</time>
+        <course>158.000000</course>
+        <speed>3.415911</speed>
+      </trkpt>
+      <trkpt lat="40.484505000" lon="-83.896550000">
+        <time>2020-06-13T16:46:59Z</time>
+        <course>156.339996</course>
+        <speed>3.498222</speed>
+      </trkpt>
+      <trkpt lat="40.484473333" lon="-83.896530000">
+        <time>2020-06-13T16:47:00Z</time>
+        <course>155.559998</course>
+        <speed>3.601111</speed>
+      </trkpt>
+      <trkpt lat="40.484443333" lon="-83.896501667">
+        <time>2020-06-13T16:47:01Z</time>
+        <course>151.389999</course>
+        <speed>3.750300</speed>
+      </trkpt>
+      <trkpt lat="40.484411667" lon="-83.896475000">
+        <time>2020-06-13T16:47:02Z</time>
+        <course>152.910004</course>
+        <speed>3.930356</speed>
+      </trkpt>
+      <trkpt lat="40.484381667" lon="-83.896456667">
+        <time>2020-06-13T16:47:03Z</time>
+        <course>158.119995</course>
+        <speed>3.611400</speed>
+      </trkpt>
+      <trkpt lat="40.484353333" lon="-83.896433333">
+        <time>2020-06-13T16:47:04Z</time>
+        <course>149.429993</course>
+        <speed>3.590822</speed>
+      </trkpt>
+      <trkpt lat="40.484330000" lon="-83.896411667">
+        <time>2020-06-13T16:47:05Z</time>
+        <course>147.850006</course>
+        <speed>3.549667</speed>
+      </trkpt>
+      <trkpt lat="40.484301667" lon="-83.896390000">
+        <time>2020-06-13T16:47:06Z</time>
+        <course>149.899994</course>
+        <speed>3.539378</speed>
+      </trkpt>
+      <trkpt lat="40.484276667" lon="-83.896366667">
+        <time>2020-06-13T16:47:07Z</time>
+        <course>149.100006</course>
+        <speed>3.436489</speed>
+      </trkpt>
+      <trkpt lat="40.484241667" lon="-83.896341667">
+        <time>2020-06-13T16:47:08Z</time>
+        <course>151.059998</course>
+        <speed>4.012667</speed>
+      </trkpt>
+      <trkpt lat="40.484211667" lon="-83.896325000">
+        <time>2020-06-13T16:47:09Z</time>
+        <course>159.550003</course>
+        <speed>3.873767</speed>
+      </trkpt>
+      <trkpt lat="40.484186667" lon="-83.896306667">
+        <time>2020-06-13T16:47:10Z</time>
+        <course>160.039993</course>
+        <speed>3.287300</speed>
+      </trkpt>
+      <trkpt lat="40.484163333" lon="-83.896293333">
+        <time>2020-06-13T16:47:11Z</time>
+        <course>162.809998</course>
+        <speed>3.174122</speed>
+      </trkpt>
+      <trkpt lat="40.484136667" lon="-83.896280000">
+        <time>2020-06-13T16:47:12Z</time>
+        <course>164.130005</course>
+        <speed>3.379900</speed>
+      </trkpt>
+      <trkpt lat="40.484108333" lon="-83.896271667">
+        <time>2020-06-13T16:47:13Z</time>
+        <course>164.449997</course>
+        <speed>3.385044</speed>
+      </trkpt>
+      <trkpt lat="40.484078333" lon="-83.896261667">
+        <time>2020-06-13T16:47:14Z</time>
+        <course>162.770004</course>
+        <speed>3.251289</speed>
+      </trkpt>
+      <trkpt lat="40.484051667" lon="-83.896248333">
+        <time>2020-06-13T16:47:15Z</time>
+        <course>164.309998</course>
+        <speed>3.256433</speed>
+      </trkpt>
+      <trkpt lat="40.484016667" lon="-83.896236667">
+        <time>2020-06-13T16:47:16Z</time>
+        <course>165.169998</course>
+        <speed>3.683422</speed>
+      </trkpt>
+      <trkpt lat="40.483983333" lon="-83.896226667">
+        <time>2020-06-13T16:47:17Z</time>
+        <course>163.440002</course>
+        <speed>3.539378</speed>
+      </trkpt>
+      <trkpt lat="40.483956667" lon="-83.896213333">
+        <time>2020-06-13T16:47:18Z</time>
+        <course>164.850006</course>
+        <speed>3.544522</speed>
+      </trkpt>
+      <trkpt lat="40.483928333" lon="-83.896195000">
+        <time>2020-06-13T16:47:19Z</time>
+        <course>161.460007</course>
+        <speed>3.415911</speed>
+      </trkpt>
+      <trkpt lat="40.483901667" lon="-83.896181667">
+        <time>2020-06-13T16:47:20Z</time>
+        <course>161.649994</course>
+        <speed>3.241000</speed>
+      </trkpt>
+      <trkpt lat="40.483873333" lon="-83.896166667">
+        <time>2020-06-13T16:47:21Z</time>
+        <course>156.539993</course>
+        <speed>3.364467</speed>
+      </trkpt>
+      <trkpt lat="40.483840000" lon="-83.896140000">
+        <time>2020-06-13T16:47:22Z</time>
+        <course>156.360001</course>
+        <speed>3.642267</speed>
+      </trkpt>
+      <trkpt lat="40.483815000" lon="-83.896126667">
+        <time>2020-06-13T16:47:23Z</time>
+        <course>160.020004</course>
+        <speed>3.215278</speed>
+      </trkpt>
+      <trkpt lat="40.483788333" lon="-83.896110000">
+        <time>2020-06-13T16:47:24Z</time>
+        <course>154.300003</course>
+        <speed>3.143255</speed>
+      </trkpt>
+      <trkpt lat="40.483758333" lon="-83.896091667">
+        <time>2020-06-13T16:47:25Z</time>
+        <course>153.740005</course>
+        <speed>3.256433</speed>
+      </trkpt>
+      <trkpt lat="40.483728333" lon="-83.896073333">
+        <time>2020-06-13T16:47:26Z</time>
+        <course>157.570007</course>
+        <speed>3.791456</speed>
+      </trkpt>
+      <trkpt lat="40.483700000" lon="-83.896058333">
+        <time>2020-06-13T16:47:27Z</time>
+        <course>155.360001</course>
+        <speed>3.318167</speed>
+      </trkpt>
+      <trkpt lat="40.483673333" lon="-83.896043333">
+        <time>2020-06-13T16:47:28Z</time>
+        <course>156.440002</course>
+        <speed>3.204989</speed>
+      </trkpt>
+      <trkpt lat="40.483646667" lon="-83.896031667">
+        <time>2020-06-13T16:47:29Z</time>
+        <course>156.100006</course>
+        <speed>3.709144</speed>
+      </trkpt>
+      <trkpt lat="40.483611667" lon="-83.896018333">
+        <time>2020-06-13T16:47:30Z</time>
+        <course>155.639999</course>
+        <speed>3.842900</speed>
+      </trkpt>
+      <trkpt lat="40.483581667" lon="-83.896000000">
+        <time>2020-06-13T16:47:31Z</time>
+        <course>159.770004</course>
+        <speed>3.575389</speed>
+      </trkpt>
+      <trkpt lat="40.483553333" lon="-83.895988333">
+        <time>2020-06-13T16:47:32Z</time>
+        <course>167.580002</course>
+        <speed>3.127822</speed>
+      </trkpt>
+      <trkpt lat="40.483523333" lon="-83.895985000">
+        <time>2020-06-13T16:47:33Z</time>
+        <course>177.050003</course>
+        <speed>2.783144</speed>
+      </trkpt>
+      <trkpt lat="40.483495000" lon="-83.895985000">
+        <time>2020-06-13T16:47:34Z</time>
+        <course>173.639999</course>
+        <speed>3.204989</speed>
+      </trkpt>
+      <trkpt lat="40.483465000" lon="-83.895985000">
+        <time>2020-06-13T16:47:35Z</time>
+        <course>162.240005</course>
+        <speed>3.770878</speed>
+      </trkpt>
+      <trkpt lat="40.483425000" lon="-83.895963333">
+        <time>2020-06-13T16:47:36Z</time>
+        <course>160.919998</course>
+        <speed>3.853189</speed>
+      </trkpt>
+      <trkpt lat="40.483400000" lon="-83.895951667">
+        <time>2020-06-13T16:47:37Z</time>
+        <course>164.710007</course>
+        <speed>2.983778</speed>
+      </trkpt>
+      <trkpt lat="40.483373333" lon="-83.895935000">
+        <time>2020-06-13T16:47:38Z</time>
+        <course>168.660004</course>
+        <speed>2.783144</speed>
+      </trkpt>
+      <trkpt lat="40.483341667" lon="-83.895921667">
+        <time>2020-06-13T16:47:39Z</time>
+        <course>172.630005</course>
+        <speed>3.009500</speed>
+      </trkpt>
+      <trkpt lat="40.483310000" lon="-83.895915000">
+        <time>2020-06-13T16:47:40Z</time>
+        <course>169.580002</course>
+        <speed>3.631978</speed>
+      </trkpt>
+      <trkpt lat="40.483273333" lon="-83.895896667">
+        <time>2020-06-13T16:47:41Z</time>
+        <course>161.720001</course>
+        <speed>4.213300</speed>
+      </trkpt>
+      <trkpt lat="40.483240000" lon="-83.895883333">
+        <time>2020-06-13T16:47:42Z</time>
+        <course>162.960007</course>
+        <speed>3.842900</speed>
+      </trkpt>
+      <trkpt lat="40.483211667" lon="-83.895875000">
+        <time>2020-06-13T16:47:43Z</time>
+        <course>166.500000</course>
+        <speed>3.457067</speed>
+      </trkpt>
+      <trkpt lat="40.483190000" lon="-83.895875000">
+        <time>2020-06-13T16:47:44Z</time>
+        <course>171.619995</course>
+        <speed>3.230711</speed>
+      </trkpt>
+      <trkpt lat="40.483158333" lon="-83.895863333">
+        <time>2020-06-13T16:47:45Z</time>
+        <course>172.059998</course>
+        <speed>3.400478</speed>
+      </trkpt>
+      <trkpt lat="40.483126667" lon="-83.895850000">
+        <time>2020-06-13T16:47:46Z</time>
+        <course>170.860001</course>
+        <speed>3.806889</speed>
+      </trkpt>
+      <trkpt lat="40.483098333" lon="-83.895833333">
+        <time>2020-06-13T16:47:47Z</time>
+        <course>165.360001</course>
+        <speed>3.647411</speed>
+      </trkpt>
+      <trkpt lat="40.483060000" lon="-83.895816667">
+        <time>2020-06-13T16:47:48Z</time>
+        <course>162.100006</course>
+        <speed>4.593989</speed>
+      </trkpt>
+      <trkpt lat="40.483028333" lon="-83.895800000">
+        <time>2020-06-13T16:47:49Z</time>
+        <course>158.000000</course>
+        <speed>4.398500</speed>
+      </trkpt>
+      <trkpt lat="40.482988333" lon="-83.895776667">
+        <time>2020-06-13T16:47:50Z</time>
+        <course>150.270004</course>
+        <speed>4.923234</speed>
+      </trkpt>
+      <trkpt lat="40.482961667" lon="-83.895743333">
+        <time>2020-06-13T16:47:51Z</time>
+        <course>139.820007</course>
+        <speed>4.686589</speed>
+      </trkpt>
+      <trkpt lat="40.482940000" lon="-83.895708333">
+        <time>2020-06-13T16:47:52Z</time>
+        <course>133.490005</course>
+        <speed>4.429367</speed>
+      </trkpt>
+      <trkpt lat="40.482928333" lon="-83.895670000">
+        <time>2020-06-13T16:47:53Z</time>
+        <course>121.680000</course>
+        <speed>3.755445</speed>
+      </trkpt>
+      <trkpt lat="40.482928333" lon="-83.895643333">
+        <time>2020-06-13T16:47:54Z</time>
+        <course>101.760002</course>
+        <speed>2.551644</speed>
+      </trkpt>
+      <trkpt lat="40.482938333" lon="-83.895621667">
+        <time>2020-06-13T16:47:55Z</time>
+        <course>76.870003</course>
+        <speed>1.985756</speed>
+      </trkpt>
+      <trkpt lat="40.482956667" lon="-83.895628333">
+        <time>2020-06-13T16:47:56Z</time>
+        <course>71.349998</course>
+        <speed>1.085478</speed>
+      </trkpt>
+      <trkpt lat="40.482975000" lon="-83.895618333">
+        <time>2020-06-13T16:47:57Z</time>
+        <course>78.540001</course>
+        <speed>0.936289</speed>
+      </trkpt>
+      <trkpt lat="40.483023333" lon="-83.895638333">
+        <time>2020-06-13T16:47:58Z</time>
+        <course>345.970001</course>
+        <speed>0.781956</speed>
+      </trkpt>
+      <trkpt lat="40.483043333" lon="-83.895660000">
+        <time>2020-06-13T16:47:59Z</time>
+        <course>318.079987</course>
+        <speed>1.522756</speed>
+      </trkpt>
+      <trkpt lat="40.483050000" lon="-83.895655000">
+        <time>2020-06-13T16:48:00Z</time>
+        <course>282.420013</course>
+        <speed>1.136922</speed>
+      </trkpt>
+      <trkpt lat="40.483050000" lon="-83.895676667">
+        <time>2020-06-13T16:48:01Z</time>
+        <course>278.179993</course>
+        <speed>1.023744</speed>
+      </trkpt>
+      <trkpt lat="40.483050000" lon="-83.895683333">
+        <time>2020-06-13T16:48:02Z</time>
+        <course>318.070007</course>
+        <speed>0.869411</speed>
+      </trkpt>
+      <trkpt lat="40.483055000" lon="-83.895691667">
+        <time>2020-06-13T16:48:03Z</time>
+        <course>340.619995</course>
+        <speed>1.013456</speed>
+      </trkpt>
+      <trkpt lat="40.483065000" lon="-83.895688333">
+        <time>2020-06-13T16:48:04Z</time>
+        <course>355.440002</course>
+        <speed>1.070044</speed>
+      </trkpt>
+      <trkpt lat="40.483076667" lon="-83.895686667">
+        <time>2020-06-13T16:48:05Z</time>
+        <course>358.880005</course>
+        <speed>1.090622</speed>
+      </trkpt>
+      <trkpt lat="40.483083333" lon="-83.895685000">
+        <time>2020-06-13T16:48:06Z</time>
+        <course>3.840000</course>
+        <speed>0.766522</speed>
+      </trkpt>
+      <trkpt lat="40.483096667" lon="-83.895691667">
+        <time>2020-06-13T16:48:07Z</time>
+        <course>345.559998</course>
+        <speed>1.198656</speed>
+      </trkpt>
+      <trkpt lat="40.483115000" lon="-83.895696667">
+        <time>2020-06-13T16:48:08Z</time>
+        <course>345.170013</course>
+        <speed>1.682233</speed>
+      </trkpt>
+      <trkpt lat="40.483121667" lon="-83.895698333">
+        <time>2020-06-13T16:48:09Z</time>
+        <course>348.350006</course>
+        <speed>0.900278</speed>
+      </trkpt>
+      <trkpt lat="40.483135000" lon="-83.895703333">
+        <time>2020-06-13T16:48:10Z</time>
+        <course>5.270000</course>
+        <speed>1.034033</speed>
+      </trkpt>
+      <trkpt lat="40.483148333" lon="-83.895720000">
+        <time>2020-06-13T16:48:11Z</time>
+        <course>329.369995</course>
+        <speed>1.651367</speed>
+      </trkpt>
+      <trkpt lat="40.483168333" lon="-83.895743333">
+        <time>2020-06-13T16:48:12Z</time>
+        <course>324.790009</course>
+        <speed>2.525922</speed>
+      </trkpt>
+      <trkpt lat="40.483193333" lon="-83.895751667">
+        <time>2020-06-13T16:48:13Z</time>
+        <course>334.820007</course>
+        <speed>2.417889</speed>
+      </trkpt>
+      <trkpt lat="40.483210000" lon="-83.895758333">
+        <time>2020-06-13T16:48:14Z</time>
+        <course>337.309998</course>
+        <speed>2.181244</speed>
+      </trkpt>
+      <trkpt lat="40.483230000" lon="-83.895766667">
+        <time>2020-06-13T16:48:15Z</time>
+        <course>345.420013</course>
+        <speed>2.201822</speed>
+      </trkpt>
+      <trkpt lat="40.483253333" lon="-83.895775000">
+        <time>2020-06-13T16:48:16Z</time>
+        <course>337.910004</course>
+        <speed>2.212111</speed>
+      </trkpt>
+      <trkpt lat="40.483271667" lon="-83.895783333">
+        <time>2020-06-13T16:48:17Z</time>
+        <course>343.029999</course>
+        <speed>2.016622</speed>
+      </trkpt>
+      <trkpt lat="40.483300000" lon="-83.895793333">
+        <time>2020-06-13T16:48:18Z</time>
+        <course>336.720001</course>
+        <speed>2.217256</speed>
+      </trkpt>
+      <trkpt lat="40.483336667" lon="-83.895813333">
+        <time>2020-06-13T16:48:19Z</time>
+        <course>336.059998</course>
+        <speed>2.819155</speed>
+      </trkpt>
+      <trkpt lat="40.483361667" lon="-83.895826667">
+        <time>2020-06-13T16:48:20Z</time>
+        <course>336.890015</course>
+        <speed>2.685400</speed>
+      </trkpt>
+      <trkpt lat="40.483378333" lon="-83.895836667">
+        <time>2020-06-13T16:48:21Z</time>
+        <course>338.920013</course>
+        <speed>2.736845</speed>
+      </trkpt>
+      <trkpt lat="40.483400000" lon="-83.895843333">
+        <time>2020-06-13T16:48:22Z</time>
+        <course>336.450012</course>
+        <speed>2.803722</speed>
+      </trkpt>
+      <trkpt lat="40.483420000" lon="-83.895853333">
+        <time>2020-06-13T16:48:23Z</time>
+        <course>330.160004</course>
+        <speed>2.623667</speed>
+      </trkpt>
+      <trkpt lat="40.483441667" lon="-83.895870000">
+        <time>2020-06-13T16:48:24Z</time>
+        <course>328.619995</course>
+        <speed>2.814011</speed>
+      </trkpt>
+      <trkpt lat="40.483458333" lon="-83.895885000">
+        <time>2020-06-13T16:48:25Z</time>
+        <course>331.149994</course>
+        <speed>2.942622</speed>
+      </trkpt>
+      <trkpt lat="40.483466667" lon="-83.895893333">
+        <time>2020-06-13T16:48:26Z</time>
+        <course>337.470001</course>
+        <speed>2.716267</speed>
+      </trkpt>
+      <trkpt lat="40.483490000" lon="-83.895906667">
+        <time>2020-06-13T16:48:27Z</time>
+        <course>332.029999</course>
+        <speed>2.397311</speed>
+      </trkpt>
+      <trkpt lat="40.483513333" lon="-83.895926667">
+        <time>2020-06-13T16:48:28Z</time>
+        <course>334.019989</course>
+        <speed>2.603089</speed>
+      </trkpt>
+      <trkpt lat="40.483531667" lon="-83.895936667">
+        <time>2020-06-13T16:48:29Z</time>
+        <course>330.750000</course>
+        <speed>2.736845</speed>
+      </trkpt>
+      <trkpt lat="40.483538333" lon="-83.895948333">
+        <time>2020-06-13T16:48:30Z</time>
+        <course>333.269989</course>
+        <speed>2.577367</speed>
+      </trkpt>
+      <trkpt lat="40.483580000" lon="-83.895985000">
+        <time>2020-06-13T16:48:31Z</time>
+        <course>335.859985</course>
+        <speed>2.891178</speed>
+      </trkpt>
+      <trkpt lat="40.483606667" lon="-83.896005000">
+        <time>2020-06-13T16:48:32Z</time>
+        <course>338.500000</course>
+        <speed>2.844878</speed>
+      </trkpt>
+      <trkpt lat="40.483626667" lon="-83.896003333">
+        <time>2020-06-13T16:48:33Z</time>
+        <course>344.209991</course>
+        <speed>2.042344</speed>
+      </trkpt>
+      <trkpt lat="40.483638333" lon="-83.896000000">
+        <time>2020-06-13T16:48:34Z</time>
+        <course>1.240000</course>
+        <speed>1.548478</speed>
+      </trkpt>
+      <trkpt lat="40.483648333" lon="-83.895996667">
+        <time>2020-06-13T16:48:35Z</time>
+        <course>5.990000</course>
+        <speed>1.100911</speed>
+      </trkpt>
+      <trkpt lat="40.483666667" lon="-83.896010000">
+        <time>2020-06-13T16:48:36Z</time>
+        <course>341.929993</course>
+        <speed>2.278989</speed>
+      </trkpt>
+      <trkpt lat="40.483690000" lon="-83.896023333">
+        <time>2020-06-13T16:48:37Z</time>
+        <course>344.440002</course>
+        <speed>2.515633</speed>
+      </trkpt>
+      <trkpt lat="40.483706667" lon="-83.896028333">
+        <time>2020-06-13T16:48:38Z</time>
+        <course>340.470001</course>
+        <speed>2.104078</speed>
+      </trkpt>
+      <trkpt lat="40.483720000" lon="-83.896035000">
+        <time>2020-06-13T16:48:39Z</time>
+        <course>340.640015</course>
+        <speed>2.520778</speed>
+      </trkpt>
+      <trkpt lat="40.483731667" lon="-83.896051667">
+        <time>2020-06-13T16:48:40Z</time>
+        <course>331.769989</course>
+        <speed>2.726556</speed>
+      </trkpt>
+      <trkpt lat="40.483755000" lon="-83.896070000">
+        <time>2020-06-13T16:48:41Z</time>
+        <course>330.440002</course>
+        <speed>2.819155</speed>
+      </trkpt>
+      <trkpt lat="40.483778333" lon="-83.896093333">
+        <time>2020-06-13T16:48:42Z</time>
+        <course>337.959991</course>
+        <speed>2.808867</speed>
+      </trkpt>
+      <trkpt lat="40.483803333" lon="-83.896121667">
+        <time>2020-06-13T16:48:43Z</time>
+        <course>322.220001</course>
+        <speed>2.633955</speed>
+      </trkpt>
+      <trkpt lat="40.483830000" lon="-83.896145000">
+        <time>2020-06-13T16:48:44Z</time>
+        <course>334.299988</course>
+        <speed>2.685400</speed>
+      </trkpt>
+      <trkpt lat="40.483851667" lon="-83.896158333">
+        <time>2020-06-13T16:48:45Z</time>
+        <course>330.059998</course>
+        <speed>2.582511</speed>
+      </trkpt>
+      <trkpt lat="40.483876667" lon="-83.896186667">
+        <time>2020-06-13T16:48:46Z</time>
+        <course>332.500000</course>
+        <speed>2.469333</speed>
+      </trkpt>
+      <trkpt lat="40.483886667" lon="-83.896201667">
+        <time>2020-06-13T16:48:47Z</time>
+        <course>332.070007</course>
+        <speed>2.124655</speed>
+      </trkpt>
+      <trkpt lat="40.483900000" lon="-83.896201667">
+        <time>2020-06-13T16:48:48Z</time>
+        <course>329.570007</course>
+        <speed>2.423033</speed>
+      </trkpt>
+      <trkpt lat="40.483916667" lon="-83.896218333">
+        <time>2020-06-13T16:48:49Z</time>
+        <course>327.989990</course>
+        <speed>2.680256</speed>
+      </trkpt>
+      <trkpt lat="40.483938333" lon="-83.896235000">
+        <time>2020-06-13T16:48:50Z</time>
+        <course>330.540009</course>
+        <speed>2.628811</speed>
+      </trkpt>
+      <trkpt lat="40.483973333" lon="-83.896260000">
+        <time>2020-06-13T16:48:51Z</time>
+        <course>329.519989</course>
+        <speed>2.875744</speed>
+      </trkpt>
+      <trkpt lat="40.483996667" lon="-83.896285000">
+        <time>2020-06-13T16:48:52Z</time>
+        <course>333.239990</course>
+        <speed>2.839733</speed>
+      </trkpt>
+      <trkpt lat="40.484023333" lon="-83.896303333">
+        <time>2020-06-13T16:48:53Z</time>
+        <course>334.660004</course>
+        <speed>2.937478</speed>
+      </trkpt>
+      <trkpt lat="40.484040000" lon="-83.896316667">
+        <time>2020-06-13T16:48:54Z</time>
+        <course>329.339996</course>
+        <speed>2.788289</speed>
+      </trkpt>
+      <trkpt lat="40.484061667" lon="-83.896323333">
+        <time>2020-06-13T16:48:55Z</time>
+        <course>335.170013</course>
+        <speed>2.592800</speed>
+      </trkpt>
+      <trkpt lat="40.484090000" lon="-83.896343333">
+        <time>2020-06-13T16:48:56Z</time>
+        <course>334.809998</course>
+        <speed>2.556789</speed>
+      </trkpt>
+      <trkpt lat="40.484115000" lon="-83.896355000">
+        <time>2020-06-13T16:48:57Z</time>
+        <course>336.329987</course>
+        <speed>3.004356</speed>
+      </trkpt>
+      <trkpt lat="40.484146667" lon="-83.896373333">
+        <time>2020-06-13T16:48:58Z</time>
+        <course>332.739990</course>
+        <speed>3.024933</speed>
+      </trkpt>
+      <trkpt lat="40.484168333" lon="-83.896381667">
+        <time>2020-06-13T16:48:59Z</time>
+        <course>335.489990</course>
+        <speed>2.932333</speed>
+      </trkpt>
+      <trkpt lat="40.484201667" lon="-83.896398333">
+        <time>2020-06-13T16:49:00Z</time>
+        <course>338.500000</course>
+        <speed>3.292444</speed>
+      </trkpt>
+      <trkpt lat="40.484230000" lon="-83.896411667">
+        <time>2020-06-13T16:49:01Z</time>
+        <course>329.130005</course>
+        <speed>3.050656</speed>
+      </trkpt>
+      <trkpt lat="40.484243333" lon="-83.896423333">
+        <time>2020-06-13T16:49:02Z</time>
+        <course>327.140015</course>
+        <speed>2.814011</speed>
+      </trkpt>
+      <trkpt lat="40.484268333" lon="-83.896441667">
+        <time>2020-06-13T16:49:03Z</time>
+        <course>328.459991</course>
+        <speed>2.952911</speed>
+      </trkpt>
+      <trkpt lat="40.484303333" lon="-83.896476667">
+        <time>2020-06-13T16:49:04Z</time>
+        <course>325.559998</course>
+        <speed>3.390189</speed>
+      </trkpt>
+      <trkpt lat="40.484340000" lon="-83.896508333">
+        <time>2020-06-13T16:49:05Z</time>
+        <course>326.859985</course>
+        <speed>3.642267</speed>
+      </trkpt>
+      <trkpt lat="40.484376667" lon="-83.896531667">
+        <time>2020-06-13T16:49:06Z</time>
+        <course>331.959991</course>
+        <speed>3.580533</speed>
+      </trkpt>
+      <trkpt lat="40.484413333" lon="-83.896561667">
+        <time>2020-06-13T16:49:07Z</time>
+        <course>329.500000</course>
+        <speed>4.022955</speed>
+      </trkpt>
+      <trkpt lat="40.484445000" lon="-83.896586667">
+        <time>2020-06-13T16:49:08Z</time>
+        <course>327.850006</course>
+        <speed>3.909778</speed>
+      </trkpt>
+      <trkpt lat="40.484478333" lon="-83.896608333">
+        <time>2020-06-13T16:49:09Z</time>
+        <course>327.670013</course>
+        <speed>3.451922</speed>
+      </trkpt>
+      <trkpt lat="40.484506667" lon="-83.896623333">
+        <time>2020-06-13T16:49:10Z</time>
+        <course>326.700012</course>
+        <speed>3.513656</speed>
+      </trkpt>
+      <trkpt lat="40.484528333" lon="-83.896645000">
+        <time>2020-06-13T16:49:11Z</time>
+        <course>324.679993</course>
+        <speed>3.606256</speed>
+      </trkpt>
+      <trkpt lat="40.484548333" lon="-83.896670000">
+        <time>2020-06-13T16:49:12Z</time>
+        <course>323.880005</course>
+        <speed>3.050656</speed>
+      </trkpt>
+      <trkpt lat="40.484573333" lon="-83.896703333">
+        <time>2020-06-13T16:49:13Z</time>
+        <course>326.019989</course>
+        <speed>3.287300</speed>
+      </trkpt>
+      <trkpt lat="40.484596667" lon="-83.896715000">
+        <time>2020-06-13T16:49:14Z</time>
+        <course>331.850006</course>
+        <speed>3.390189</speed>
+      </trkpt>
+      <trkpt lat="40.484615000" lon="-83.896713333">
+        <time>2020-06-13T16:49:15Z</time>
+        <course>342.899994</course>
+        <speed>3.261578</speed>
+      </trkpt>
+      <trkpt lat="40.484641667" lon="-83.896718333">
+        <time>2020-06-13T16:49:16Z</time>
+        <course>353.130005</course>
+        <speed>2.886033</speed>
+      </trkpt>
+      <trkpt lat="40.484655000" lon="-83.896698333">
+        <time>2020-06-13T16:49:17Z</time>
+        <course>13.970000</course>
+        <speed>2.397311</speed>
+      </trkpt>
+      <trkpt lat="40.484675000" lon="-83.896698333">
+        <time>2020-06-13T16:49:18Z</time>
+        <course>24.320000</course>
+        <speed>1.821133</speed>
+      </trkpt>
+      <trkpt lat="40.484673333" lon="-83.896683333">
+        <time>2020-06-13T16:49:19Z</time>
+        <course>58.730000</course>
+        <speed>1.219233</speed>
+      </trkpt>
+      <trkpt lat="40.484665000" lon="-83.896665000">
+        <time>2020-06-13T16:49:20Z</time>
+        <course>116.680000</course>
+        <speed>1.306689</speed>
+      </trkpt>
+      <trkpt lat="40.484643333" lon="-83.896640000">
+        <time>2020-06-13T16:49:21Z</time>
+        <course>127.459999</course>
+        <speed>2.387022</speed>
+      </trkpt>
+      <trkpt lat="40.484628333" lon="-83.896613333">
+        <time>2020-06-13T16:49:22Z</time>
+        <course>131.720001</course>
+        <speed>2.165811</speed>
+      </trkpt>
+      <trkpt lat="40.484611667" lon="-83.896598333">
+        <time>2020-06-13T16:49:23Z</time>
+        <course>138.669998</course>
+        <speed>1.533044</speed>
+      </trkpt>
+      <trkpt lat="40.484586667" lon="-83.896570000">
+        <time>2020-06-13T16:49:24Z</time>
+        <course>140.960007</course>
+        <speed>2.129800</speed>
+      </trkpt>
+      <trkpt lat="40.484555000" lon="-83.896531667">
+        <time>2020-06-13T16:49:25Z</time>
+        <course>139.240005</course>
+        <speed>2.891178</speed>
+      </trkpt>
+      <trkpt lat="40.484531667" lon="-83.896503333">
+        <time>2020-06-13T16:49:26Z</time>
+        <course>143.539993</course>
+        <speed>2.963200</speed>
+      </trkpt>
+      <trkpt lat="40.484496667" lon="-83.896483333">
+        <time>2020-06-13T16:49:27Z</time>
+        <course>155.509995</course>
+        <speed>3.642267</speed>
+      </trkpt>
+      <trkpt lat="40.484461667" lon="-83.896466667">
+        <time>2020-06-13T16:49:28Z</time>
+        <course>152.139999</course>
+        <speed>3.791456</speed>
+      </trkpt>
+      <trkpt lat="40.484423333" lon="-83.896446667">
+        <time>2020-06-13T16:49:29Z</time>
+        <course>150.850006</course>
+        <speed>3.873767</speed>
+      </trkpt>
+      <trkpt lat="40.484376667" lon="-83.896421667">
+        <time>2020-06-13T16:49:30Z</time>
+        <course>153.309998</course>
+        <speed>4.064111</speed>
+      </trkpt>
+      <trkpt lat="40.484353333" lon="-83.896403333">
+        <time>2020-06-13T16:49:31Z</time>
+        <course>152.740005</course>
+        <speed>3.812033</speed>
+      </trkpt>
+      <trkpt lat="40.484331667" lon="-83.896391667">
+        <time>2020-06-13T16:49:32Z</time>
+        <course>152.729996</course>
+        <speed>3.920067</speed>
+      </trkpt>
+      <trkpt lat="40.484296667" lon="-83.896368333">
+        <time>2020-06-13T16:49:33Z</time>
+        <course>153.330002</course>
+        <speed>4.048678</speed>
+      </trkpt>
+      <trkpt lat="40.484263333" lon="-83.896346667">
+        <time>2020-06-13T16:49:34Z</time>
+        <course>153.059998</course>
+        <speed>4.290467</speed>
+      </trkpt>
+      <trkpt lat="40.484225000" lon="-83.896323333">
+        <time>2020-06-13T16:49:35Z</time>
+        <course>155.949997</course>
+        <speed>4.244167</speed>
+      </trkpt>
+      <trkpt lat="40.484193333" lon="-83.896303333">
+        <time>2020-06-13T16:49:36Z</time>
+        <course>154.309998</course>
+        <speed>3.863478</speed>
+      </trkpt>
+      <trkpt lat="40.484163333" lon="-83.896285000">
+        <time>2020-06-13T16:49:37Z</time>
+        <course>157.570007</course>
+        <speed>3.364467</speed>
+      </trkpt>
+      <trkpt lat="40.484148333" lon="-83.896273333">
+        <time>2020-06-13T16:49:38Z</time>
+        <course>157.190002</course>
+        <speed>3.369611</speed>
+      </trkpt>
+      <trkpt lat="40.484121667" lon="-83.896260000">
+        <time>2020-06-13T16:49:39Z</time>
+        <course>159.600006</course>
+        <speed>3.395333</speed>
+      </trkpt>
+      <trkpt lat="40.484090000" lon="-83.896243333">
+        <time>2020-06-13T16:49:40Z</time>
+        <course>163.750000</course>
+        <speed>3.734867</speed>
+      </trkpt>
+      <trkpt lat="40.484058333" lon="-83.896228333">
+        <time>2020-06-13T16:49:41Z</time>
+        <course>165.470001</course>
+        <speed>4.079545</speed>
+      </trkpt>
+      <trkpt lat="40.484018333" lon="-83.896221667">
+        <time>2020-06-13T16:49:42Z</time>
+        <course>169.399994</course>
+        <speed>4.311044</speed>
+      </trkpt>
+      <trkpt lat="40.483980000" lon="-83.896215000">
+        <time>2020-06-13T16:49:43Z</time>
+        <course>170.729996</course>
+        <speed>4.352200</speed>
+      </trkpt>
+      <trkpt lat="40.483943333" lon="-83.896211667">
+        <time>2020-06-13T16:49:44Z</time>
+        <course>173.710007</course>
+        <speed>4.017811</speed>
+      </trkpt>
+      <trkpt lat="40.483916667" lon="-83.896210000">
+        <time>2020-06-13T16:49:45Z</time>
+        <course>172.009995</course>
+        <speed>3.369611</speed>
+      </trkpt>
+      <trkpt lat="40.483888333" lon="-83.896201667">
+        <time>2020-06-13T16:49:46Z</time>
+        <course>169.490005</course>
+        <speed>3.323311</speed>
+      </trkpt>
+      <trkpt lat="40.483863333" lon="-83.896196667">
+        <time>2020-06-13T16:49:47Z</time>
+        <course>179.020004</course>
+        <speed>2.947767</speed>
+      </trkpt>
+      <trkpt lat="40.483846667" lon="-83.896200000">
+        <time>2020-06-13T16:49:48Z</time>
+        <course>182.399994</course>
+        <speed>2.428178</speed>
+      </trkpt>
+      <trkpt lat="40.483821667" lon="-83.896195000">
+        <time>2020-06-13T16:49:49Z</time>
+        <course>181.080002</course>
+        <speed>2.253267</speed>
+      </trkpt>
+      <trkpt lat="40.483788333" lon="-83.896193333">
+        <time>2020-06-13T16:49:50Z</time>
+        <course>177.330002</course>
+        <speed>3.225567</speed>
+      </trkpt>
+      <trkpt lat="40.483748333" lon="-83.896183333">
+        <time>2020-06-13T16:49:51Z</time>
+        <course>175.250000</course>
+        <speed>3.328455</speed>
+      </trkpt>
+      <trkpt lat="40.483715000" lon="-83.896175000">
+        <time>2020-06-13T16:49:52Z</time>
+        <course>170.990005</course>
+        <speed>3.220422</speed>
+      </trkpt>
+      <trkpt lat="40.483686667" lon="-83.896165000">
+        <time>2020-06-13T16:49:53Z</time>
+        <course>162.119995</course>
+        <speed>3.318167</speed>
+      </trkpt>
+      <trkpt lat="40.483656667" lon="-83.896148333">
+        <time>2020-06-13T16:49:54Z</time>
+        <course>157.240005</course>
+        <speed>3.457067</speed>
+      </trkpt>
+      <trkpt lat="40.483620000" lon="-83.896141667">
+        <time>2020-06-13T16:49:55Z</time>
+        <course>164.369995</course>
+        <speed>3.662844</speed>
+      </trkpt>
+      <trkpt lat="40.483586667" lon="-83.896128333">
+        <time>2020-06-13T16:49:56Z</time>
+        <course>171.039993</course>
+        <speed>3.878911</speed>
+      </trkpt>
+      <trkpt lat="40.483545000" lon="-83.896131667">
+        <time>2020-06-13T16:49:57Z</time>
+        <course>173.539993</course>
+        <speed>3.925211</speed>
+      </trkpt>
+      <trkpt lat="40.483505000" lon="-83.896121667">
+        <time>2020-06-13T16:49:58Z</time>
+        <course>174.110001</course>
+        <speed>3.884056</speed>
+      </trkpt>
+      <trkpt lat="40.483463333" lon="-83.896101667">
+        <time>2020-06-13T16:49:59Z</time>
+        <course>165.710007</course>
+        <speed>4.141278</speed>
+      </trkpt>
+      <trkpt lat="40.483430000" lon="-83.896098333">
+        <time>2020-06-13T16:50:00Z</time>
+        <course>164.050003</course>
+        <speed>3.848044</speed>
+      </trkpt>
+      <trkpt lat="40.483405000" lon="-83.896096667">
+        <time>2020-06-13T16:50:01Z</time>
+        <course>155.779999</course>
+        <speed>3.168978</speed>
+      </trkpt>
+      <trkpt lat="40.483383333" lon="-83.896091667">
+        <time>2020-06-13T16:50:02Z</time>
+        <course>156.110001</course>
+        <speed>3.199844</speed>
+      </trkpt>
+      <trkpt lat="40.483348333" lon="-83.896078333">
+        <time>2020-06-13T16:50:03Z</time>
+        <course>156.660004</course>
+        <speed>3.210133</speed>
+      </trkpt>
+      <trkpt lat="40.483311667" lon="-83.896058333">
+        <time>2020-06-13T16:50:04Z</time>
+        <course>154.059998</course>
+        <speed>3.575389</speed>
+      </trkpt>
+      <trkpt lat="40.483290000" lon="-83.896056667">
+        <time>2020-06-13T16:50:05Z</time>
+        <course>169.050003</course>
+        <speed>3.328455</speed>
+      </trkpt>
+      <trkpt lat="40.483260000" lon="-83.896076667">
+        <time>2020-06-13T16:50:06Z</time>
+        <course>187.949997</course>
+        <speed>3.493078</speed>
+      </trkpt>
+      <trkpt lat="40.483235000" lon="-83.896083333">
+        <time>2020-06-13T16:50:07Z</time>
+        <course>194.899994</course>
+        <speed>3.179267</speed>
+      </trkpt>
+      <trkpt lat="40.483206667" lon="-83.896078333">
+        <time>2020-06-13T16:50:08Z</time>
+        <course>179.589996</course>
+        <speed>2.927189</speed>
+      </trkpt>
+      <trkpt lat="40.483190000" lon="-83.896080000">
+        <time>2020-06-13T16:50:09Z</time>
+        <course>166.610001</course>
+        <speed>2.294422</speed>
+      </trkpt>
+      <trkpt lat="40.483183333" lon="-83.896068333">
+        <time>2020-06-13T16:50:10Z</time>
+        <course>141.550003</course>
+        <speed>1.430156</speed>
+      </trkpt>
+      <trkpt lat="40.483186667" lon="-83.896040000">
+        <time>2020-06-13T16:50:11Z</time>
+        <course>97.260002</course>
+        <speed>1.481600</speed>
+      </trkpt>
+      <trkpt lat="40.483196667" lon="-83.896018333">
+        <time>2020-06-13T16:50:12Z</time>
+        <course>75.279999</course>
+        <speed>1.893156</speed>
+      </trkpt>
+      <trkpt lat="40.483215000" lon="-83.896000000">
+        <time>2020-06-13T16:50:13Z</time>
+        <course>48.889999</course>
+        <speed>2.057778</speed>
+      </trkpt>
+      <trkpt lat="40.483236667" lon="-83.895976667">
+        <time>2020-06-13T16:50:14Z</time>
+        <course>33.270000</course>
+        <speed>2.433322</speed>
+      </trkpt>
+      <trkpt lat="40.483268333" lon="-83.895965000">
+        <time>2020-06-13T16:50:15Z</time>
+        <course>28.670000</course>
+        <speed>2.556789</speed>
+      </trkpt>
+      <trkpt lat="40.483298333" lon="-83.895956667">
+        <time>2020-06-13T16:50:16Z</time>
+        <course>34.570000</course>
+        <speed>2.844878</speed>
+      </trkpt>
+      <trkpt lat="40.483298333" lon="-83.895945000">
+        <time>2020-06-13T16:50:17Z</time>
+        <course>28.610001</course>
+        <speed>1.574200</speed>
+      </trkpt>
+      <trkpt lat="40.483311667" lon="-83.895945000">
+        <time>2020-06-13T16:50:18Z</time>
+        <course>357.260010</course>
+        <speed>1.440444</speed>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
